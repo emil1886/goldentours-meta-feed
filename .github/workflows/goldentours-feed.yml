@@ -1,0 +1,65 @@
+name: Build Golden Tours Meta feed
+
+# Runs daily, rebuilds the feed from the live site, and DEPLOYS it to GitHub Pages.
+# Pages serves the file at a public URL Meta can read, while the repo stays PRIVATE.
+# Requires a paid plan (Pro/Team/Enterprise) for Pages on a private repo.
+
+on:
+  schedule:
+    - cron: "0 5 * * *"   # 05:00 UTC daily (GitHub may delay scheduled runs a few min)
+  workflow_dispatch: {}    # manual "Run workflow" button
+
+# Permissions required to deploy to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent Pages deployment
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: Build feed (GBP, strict guards) into ./site
+        env:
+          # Confirmed cookie baked in (curr=GBP). Override only if it ever changes:
+          # repo Settings -> Secrets and variables -> Actions -> Variables -> GT_CURRENCY_COOKIE
+          GT_CURRENCY_COOKIE: ${{ vars.GT_CURRENCY_COOKIE || 'curr=GBP' }}
+        run: |
+          mkdir -p site
+          python goldentours_meta_feed_gbp.py \
+            --currency GBP \
+            --cookie "$GT_CURRENCY_COOKIE" \
+            --strict-currency \
+            --min-products 150 \
+            --out-dir site
+          # If the build aborts (bad currency / too few products), the job fails here
+          # and the previous Pages deployment stays live untouched.
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
