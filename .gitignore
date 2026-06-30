@@ -1,0 +1,8 @@
+# Local dev only — not part of the published feed pipeline
+.venv/
+__pycache__/
+*.pyc
+out/
+probe*.py
+inspect_gate.py
+validate.py

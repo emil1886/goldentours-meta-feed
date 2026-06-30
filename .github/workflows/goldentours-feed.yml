@@ -1,32 +1,29 @@
 name: Build Golden Tours Meta feed
 
-# Runs daily, rebuilds the feed from the live site, and DEPLOYS it to GitHub Pages.
-# Pages serves the file at a public URL Meta can read, while the repo stays PRIVATE.
-# Requires a paid plan (Pro/Team/Enterprise) for Pages on a private repo.
+# Rebuilds the GBP feed daily from the live site and commits it into ./docs,
+# which GitHub Pages serves at a public URL Meta can read.
+#
+# IMPORTANT: the site prices by IP geolocation, so the crawl MUST egress from a
+# UK IP. GitHub's hosted runners are US-based, so this routes requests through a
+# UK proxy supplied via the repo secret UK_PROXY. Without it the crawl returns
+# USD and the strict-currency guard refuses to write (last good feed stays live).
 
 on:
   schedule:
-    - cron: "0 5 * * *"   # 05:00 UTC daily (GitHub may delay scheduled runs a few min)
+    - cron: "0 5 * * *"   # 05:00 UTC daily (GitHub may delay scheduled runs)
   workflow_dispatch: {}    # manual "Run workflow" button
 
-# Permissions required to deploy to GitHub Pages
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write          # commit the regenerated feed back to main
 
-# Allow only one concurrent Pages deployment
 concurrency:
-  group: pages
+  group: feed-build
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,27 +36,31 @@ jobs:
       - name: Install dependencies
         run: pip install requests beautifulsoup4 lxml
 
-      - name: Build feed (GBP, strict guards) into ./site
+      - name: Build feed (GBP via UK proxy, strict guards) into ./docs
         env:
-          # Confirmed cookie baked in (curr=GBP). Override only if it ever changes:
-          # repo Settings -> Secrets and variables -> Actions -> Variables -> GT_CURRENCY_COOKIE
-          GT_CURRENCY_COOKIE: ${{ vars.GT_CURRENCY_COOKIE || 'curr=GBP' }}
+          UK_PROXY: ${{ secrets.UK_PROXY }}
         run: |
-          mkdir -p site
+          if [ -z "$UK_PROXY" ]; then
+            echo "::error::Repo secret UK_PROXY is not set. The crawl would run from GitHub's US IP and return USD, which the strict-currency guard rejects. Add a UK proxy URL under Settings -> Secrets and variables -> Actions -> New repository secret (name: UK_PROXY)."
+            exit 1
+          fi
           python goldentours_meta_feed_gbp.py \
             --currency GBP \
-            --cookie "$GT_CURRENCY_COOKIE" \
+            --proxy "$UK_PROXY" \
             --strict-currency \
-            --min-products 150 \
-            --out-dir site
-          # If the build aborts (bad currency / too few products), the job fails here
-          # and the previous Pages deployment stays live untouched.
+            --min-products 300 \
+            --out-dir docs
+          # On abort (wrong currency / too few products) the job fails here and
+          # nothing is committed, so the previously published feed stays untouched.
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Commit & push if the feed changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/goldentours_meta_feed.csv docs/goldentours_meta_feed.xml
+          if git diff --cached --quiet; then
+            echo "No feed changes today."
+          else
+            git commit -m "Daily feed refresh"
+            git push
+          fi

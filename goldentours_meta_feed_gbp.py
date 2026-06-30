@@ -6,33 +6,39 @@ Crawls the HTML sitemap, visits each product page, extracts feed fields from the
 server-rendered markup, and writes a Meta catalogue CSV (primary) + RSS/XML.
 
 WHY THIS VERSION
-The site shows prices in the visitor's local currency. From a UK connection it
-serves GBP (£); from elsewhere it may serve USD ($). Meta rejects items whose
-feed price doesn't match the landing page, so the feed MUST be built from the
-GBP render of the site. This script targets GBP by default and refuses to stay
-quiet if a page comes back in the wrong currency.
+The site shows prices in the visitor's local currency, chosen by SERVER-SIDE IP
+GEOLOCATION. From a UK connection it serves GBP (£); from elsewhere (e.g. a US
+datacentre) it serves USD ($). No cookie or URL parameter overrides this - it is
+purely the requesting IP. Meta rejects items whose feed price doesn't match the
+landing page, so the crawl MUST egress from a UK IP. This script targets GBP by
+default and refuses to write if any page comes back in the wrong currency.
 
-GETTING GBP TO STICK
-The confirmed cookie is curr=GBP. Pass it on the command line:
-    python goldentours_meta_feed_gbp.py --cookie curr=GBP
-If the currency guard warns about "$", the cookie name/value is wrong.
+GETTING GBP
+Run the crawl from a UK connection, OR route it through a UK proxy:
+    python goldentours_meta_feed_gbp.py --proxy http://user:pass@uk-host:port
+GitHub's hosted runners are US-based, so the scheduled workflow uses a UK proxy
+(repo secret UK_PROXY). The price itself is read from each page's JSON-LD offer
+(the authoritative value Meta matches against), falling back to the visible
+"From <sym>X" headline only if no structured offer is present.
 
 UK ENGLISH
 Titles and descriptions are taken verbatim from the live UK site.
 
 USAGE
     pip install requests beautifulsoup4 lxml
-    python goldentours_meta_feed_gbp.py --cookie curr=GBP --out-dir ./out
-    python goldentours_meta_feed_gbp.py --cookie curr=GBP --limit 25
+    python goldentours_meta_feed_gbp.py --out-dir ./out          # run from the UK
+    python goldentours_meta_feed_gbp.py --proxy <uk-proxy-url> --out-dir ./out
+    python goldentours_meta_feed_gbp.py --limit 25               # quick test
 """
 
 import argparse
 import csv
+import json
 import re
 import sys
 import time
 import xml.sax.saxutils as sax
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 
 import requests
 from bs4 import BeautifulSoup
@@ -46,13 +52,21 @@ BRAND = "Golden Tours"
 
 # Symbol expected for each target currency, used by the currency guard.
 CURRENCY_SYMBOL = {"GBP": "£", "USD": "$", "EUR": "€"}
+SYMBOL_CURRENCY = {v: k for k, v in CURRENCY_SYMBOL.items()}
 
+# A browser-like User-Agent is used deliberately: with a bot UA the site serves a
+# reduced sitemap (only a handful of product links). Also note the site renders
+# prices by IP geolocation, so this crawler MUST run from a UK connection to get GBP.
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; FeedBuilder/1.0; +https://anicca.co.uk)"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Accept-Language": "en-GB,en;q=0.9",
 }
 
 NON_PRODUCT_PREFIXES = (
     "/travelblog", "/es/", "/it/", "/fr/", "/de/", "/cn/", "/br/",
+    # asset / non-product two-segment paths that appear in the sitemap markup
+    "/css/", "/js/", "/img/", "/images/", "/assets/", "/static/",
 )
 
 # Single-segment URLs that are actually bookable products (extend as needed).
@@ -78,14 +92,20 @@ def discover_product_urls(session, cookies):
     urls = set(EXTRA_PRODUCT_URLS)
     for a in soup.select("a[href]"):
         href = a["href"].strip()
-        if not href.startswith(BASE):
+        if not href or href.startswith("#") \
+                or href.lower().startswith(("javascript:", "mailto:", "tel:")):
             continue
-        path = urlparse(href).path
+        # Sitemap links are RELATIVE (/category/product); resolve to absolute
+        # so they aren't silently skipped.
+        parts = urlparse(urljoin(BASE + "/", href))
+        if parts.netloc not in ("www.goldentours.com", "goldentours.com"):
+            continue
+        path = parts.path
         if any(path.startswith(p) for p in NON_PRODUCT_PREFIXES):
             continue
         segments = [s for s in path.split("/") if s]
         if len(segments) == 2:
-            urls.add(href.split("?")[0].split("#")[0])
+            urls.add(f"{BASE}{path.rstrip('/')}")
     return sorted(urls)
 
 
@@ -95,23 +115,82 @@ def meta_tag(soup, prop=None, name=None):
     return tag["content"].strip() if tag and tag.get("content") else ""
 
 
+def _walk_offers(node):
+    """Yield every dict in a JSON-LD tree that looks like an Offer/price node."""
+    out = []
+    if isinstance(node, dict):
+        if any(k in node for k in ("price", "lowPrice", "priceCurrency")):
+            out.append(node)
+        for v in node.values():
+            out += _walk_offers(v)
+    elif isinstance(node, list):
+        for v in node:
+            out += _walk_offers(v)
+    return out
+
+
+def jsonld_price(raw):
+    """Return (price_str, currency_code) from the page's JSON-LD product offer.
+
+    This is the authoritative price the site itself publishes; it equals the
+    visible "From £X" headline and is what Meta matches the landing page on.
+    Picks the lowest offer price (the "from"/starting-from semantics). Returns
+    None if the page carries no structured offer.
+    """
+    best = None  # (price_float, currency_code)
+    for m in re.finditer(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>',
+                         raw, re.S | re.I):
+        blob = m.group(1).strip()
+        try:
+            data = json.loads(blob)
+        except Exception:
+            continue
+        for off in _walk_offers(data):
+            raw_price = off.get("price", off.get("lowPrice"))
+            cur = off.get("priceCurrency")
+            if raw_price is None or not cur:
+                continue
+            try:
+                pv = float(str(raw_price).replace(",", ""))
+            except (TypeError, ValueError):
+                continue
+            if pv <= 0:
+                continue
+            if best is None or pv < best[0]:
+                best = (pv, str(cur).upper())
+    if best:
+        return f"{best[0]:.2f}", best[1]
+    return None
+
+
 def parse_product(url, raw):
     soup = BeautifulSoup(raw, "lxml")
 
     title = meta_tag(soup, prop="og:title") or (soup.h1.get_text(strip=True) if soup.h1 else "")
-    title = re.sub(r"\s*-\s*Golden Tours\s*$", "", title).strip()[:200]
+    # Strip a trailing site-name suffix in any of its separator forms.
+    title = re.sub(r"\s*[\|\-–—:]?\s*Golden Tours\s*$", "", title)
+    title = re.sub(r"\s+", " ", title).strip()[:200]
     image = meta_tag(soup, prop="og:image")
     description = meta_tag(soup, name="description") or meta_tag(soup, prop="og:description")
     canonical = meta_tag(soup, prop="og:url") or url
 
     text = soup.get_text(" ", strip=True)
-    from_m = PRICE_FROM_RE.search(text)
     was_m = PRICE_WAS_RE.search(text)
-    if not from_m:
-        return None  # no price -> not a bookable product, skip
 
-    symbol = from_m.group(1)
-    from_price = from_m.group(2).replace(",", "")
+    # Price: prefer the structured JSON-LD offer (authoritative, Meta-matching);
+    # fall back to the visible "From <sym>X" headline only if no JSON-LD offer.
+    jl = jsonld_price(raw)
+    if jl:
+        from_price, currency_code = jl
+        symbol = CURRENCY_SYMBOL.get(currency_code, "")
+    else:
+        from_m = PRICE_FROM_RE.search(text)
+        if not from_m:
+            return None  # no price -> not a bookable product, skip
+        symbol = from_m.group(1)
+        currency_code = SYMBOL_CURRENCY.get(symbol, "")
+        from_price = from_m.group(2).replace(",", "")
+
     was_price = was_m.group(2).replace(",", "") if was_m else None
 
     ac = ACTIVITY_RE.search(raw) or ACTIVITY_RE2.search(text)
@@ -124,6 +203,7 @@ def parse_product(url, raw):
     return {
         "id": pid, "title": title, "description": description,
         "link": canonical, "image_link": image, "symbol": symbol,
+        "currency_code": currency_code,
         "from_price": from_price, "was_price": was_price,
         "product_type": product_type,
     }
@@ -138,15 +218,15 @@ def build_items(currency, session, cookies, limit=None):
     if limit:
         candidates = candidates[:limit]
     items, wrong_currency = [], 0
-    want_symbol = CURRENCY_SYMBOL.get(currency.upper(), "")
+    want = currency.upper()
     for i, url in enumerate(candidates, 1):
         try:
             p = parse_product(url, get(url, session, cookies))
             if p:
-                if want_symbol and p["symbol"] != want_symbol:
+                if p["currency_code"] and p["currency_code"] != want:
                     wrong_currency += 1
                 items.append(p)
-                print(f"[{i}/{len(candidates)}] OK {p['symbol']} {p['id']}  {p['title'][:50]}",
+                print(f"[{i}/{len(candidates)}] OK {p['currency_code']} {p['id']}  {p['title'][:50]}",
                       file=sys.stderr)
             else:
                 print(f"[{i}/{len(candidates)}] skip (no price)  {url}", file=sys.stderr)
@@ -154,11 +234,25 @@ def build_items(currency, session, cookies, limit=None):
             print(f"[{i}/{len(candidates)}] ERR  {url}  {e}", file=sys.stderr)
         time.sleep(0.4)
 
-    if want_symbol and wrong_currency:
+    if wrong_currency:
         print(f"\n*** CURRENCY WARNING: {wrong_currency}/{len(items)} pages were NOT in "
-              f"'{want_symbol}' ({currency}). The currency cookie did not take effect. "
-              f"Do NOT upload this feed - re-check --cookie. ***\n", file=sys.stderr)
-    return items
+              f"{want}. The site renders by IP geolocation - this crawl must run from "
+              f"a UK connection to get GBP. Do NOT upload this feed. ***\n", file=sys.stderr)
+
+    # Meta requires a unique id per item. The same product can be linked under two
+    # sitemap category paths but canonicalises (og:url) to one link/id - collapse
+    # the repeats so duplicates don't silently overwrite each other in the catalogue.
+    seen, deduped, removed = set(), [], 0
+    for p in items:
+        if p["id"] in seen:
+            removed += 1
+            continue
+        seen.add(p["id"])
+        deduped.append(p)
+    if removed:
+        print(f"De-duplicated {removed} repeat product id(s); {len(deduped)} unique items.",
+              file=sys.stderr)
+    return deduped
 
 
 def write_csv(items, currency, path):
@@ -221,23 +315,32 @@ def main():
                     help="exit non-zero (don't write) if any page is in the wrong currency")
     ap.add_argument("--min-products", type=int, default=0,
                     help="exit non-zero if fewer than this many products were extracted")
+    ap.add_argument("--proxy", default=None,
+                    help="route all requests through this proxy URL so the crawl "
+                         "egresses from a UK IP (e.g. http://user:pass@uk-host:port). "
+                         "Also honours the HTTPS_PROXY/HTTP_PROXY environment variables.")
     args = ap.parse_args()
 
     cookies = parse_cookies(args.cookie)
-    if args.currency.upper() == "GBP" and not cookies:
-        print("Note: targeting GBP but no --cookie given. If pages come back in $, "
-              "set the currency cookie (see header comment).", file=sys.stderr)
+    if args.currency.upper() == "GBP":
+        print("Note: GBP comes from the site's IP geolocation, not a cookie. "
+              "This crawl must egress from a UK connection (run locally in the UK, "
+              "or via --proxy / a UK proxy); otherwise the strict-currency guard "
+              "refuses to write.", file=sys.stderr)
 
     session = requests.Session()
+    if args.proxy:
+        session.proxies.update({"http": args.proxy, "https": args.proxy})
+        print(f"Routing requests via proxy: {args.proxy.split('@')[-1]}", file=sys.stderr)
     items = build_items(args.currency, session, cookies, args.limit)
     print(f"\nExtracted {len(items)} products", file=sys.stderr)
 
     # Guards: fail loudly BEFORE writing, so a scheduled job never publishes a bad feed.
-    want_symbol = CURRENCY_SYMBOL.get(args.currency.upper(), "")
-    mismatches = sum(1 for p in items if want_symbol and p["symbol"] != want_symbol)
+    want = args.currency.upper()
+    mismatches = sum(1 for p in items if p["currency_code"] and p["currency_code"] != want)
     if args.strict_currency and mismatches:
-        sys.exit(f"ABORT: {mismatches}/{len(items)} products not in {args.currency}. "
-                 f"Feed NOT written. Fix the --cookie value.")
+        sys.exit(f"ABORT: {mismatches}/{len(items)} products not in {want}. Feed NOT "
+                 f"written. The crawl must run from a UK connection to render GBP.")
     if args.min_products and len(items) < args.min_products:
         sys.exit(f"ABORT: only {len(items)} products (< --min-products {args.min_products}). "
                  f"Feed NOT written - the site or sitemap may have changed.")
