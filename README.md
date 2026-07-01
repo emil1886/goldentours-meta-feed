@@ -8,44 +8,44 @@ publishes it via GitHub Pages so Meta can fetch it on a schedule.
 
 The crawler discovers products from the site's HTML sitemap, reads each product
 page's JSON-LD offer (the authoritative price Meta matches against), and writes a
-Meta-compliant feed into `docs/`, which Pages serves.
+Meta-compliant feed into `docs/`, which Pages deploys.
 
-## The one hard requirement: a UK IP
+## How it runs
 
-The site prices by **server-side IP geolocation** — a UK IP gets GBP, a US IP
-gets USD, and no cookie/parameter overrides it. The feed must therefore be built
-from a UK connection. GitHub's hosted runners are US-based, so the daily workflow
-routes requests through a **UK proxy**.
+A GitHub Action (`.github/workflows/goldentours-feed.yml`) runs **daily**,
+rebuilds the feed, commits it to `main` for history, and deploys `docs/` to
+GitHub Pages. **No proxy, no server, no manual step** — it's fully automated.
 
-### Set this up once
+## Currency (the interesting bit)
 
-Add a repository secret so the scheduled build can reach the site as a UK
-visitor:
-
-1. Repo **Settings → Secrets and variables → Actions → New repository secret**
-2. Name: `UK_PROXY`  Value: `http://user:pass@<uk-proxy-host>:<port>`
-
-Until that secret exists, the daily run fails fast (by design) rather than
-publishing a USD feed. The previously published feed stays live untouched.
+The site shows prices in the visitor's IP-geolocated currency (UK IP -> GBP, US
+IP -> USD), and a self-supplied `curr` cookie or `?curr=` parameter is *ignored*.
+But the on-page currency selector is a **POST form** (`form#currform` -> `POST
+curr=<code>`), and the server honours that by issuing a "blessed" currency cookie
+that then sticks for the whole session **regardless of IP**. `establish_currency()`
+mirrors this, so the crawl renders GBP even from GitHub's US-based runners.
 
 ## Guards (a bad run never publishes)
 
-The build aborts **before writing** if:
+The build aborts **before writing/deploying** if:
 
-- any product is not in GBP (`--strict-currency`) — i.e. the crawl wasn't on a UK IP, or
+- any product is not in GBP (`--strict-currency`) — i.e. the POST override didn't take, or
 - fewer than `--min-products` products were found (`--min-products 300`) — i.e. the
   site or sitemap changed.
 
-On abort the workflow fails red and commits nothing, so Meta keeps reading the
+On abort the workflow fails red and deploys nothing, so Meta keeps reading the
 last good feed.
 
-## Run it locally (from the UK)
+## Run it locally
 
 ```bash
 pip install requests beautifulsoup4 lxml
 python goldentours_meta_feed_gbp.py --currency GBP --strict-currency \
   --min-products 300 --out-dir docs
 ```
+
+Works from any connection — `establish_currency()` forces GBP via the POST
+selector.
 
 ## Meta setup
 

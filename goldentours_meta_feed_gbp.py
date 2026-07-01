@@ -6,19 +6,19 @@ Crawls the HTML sitemap, visits each product page, extracts feed fields from the
 server-rendered markup, and writes a Meta catalogue CSV (primary) + RSS/XML.
 
 WHY THIS VERSION
-The site shows prices in the visitor's local currency, chosen by SERVER-SIDE IP
-GEOLOCATION. From a UK connection it serves GBP (£); from elsewhere (e.g. a US
-datacentre) it serves USD ($). No cookie or URL parameter overrides this - it is
-purely the requesting IP. Meta rejects items whose feed price doesn't match the
-landing page, so the crawl MUST egress from a UK IP. This script targets GBP by
-default and refuses to write if any page comes back in the wrong currency.
+The site defaults to the visitor's IP-geolocated currency (UK IP -> GBP, US IP
+-> USD), and a self-supplied curr cookie or ?curr= parameter is ignored. BUT its
+on-page currency selector is a POST form (form#currform -> POST curr=<code>), and
+the server honours THAT by issuing a "blessed" curr cookie that then sticks for
+the whole session regardless of IP. establish_currency() mirrors this, so the
+crawl renders GBP from ANY connection - including GitHub's US-based runners - with
+no proxy. Meta rejects items whose feed price doesn't match the landing page, so
+the script targets GBP and refuses to write if any page comes back non-GBP.
 
 GETTING GBP
-Run the crawl from a UK connection, OR route it through a UK proxy:
-    python goldentours_meta_feed_gbp.py --proxy http://user:pass@uk-host:port
-GitHub's hosted runners are US-based, so the scheduled workflow uses a UK proxy
-(repo secret UK_PROXY). The price itself is read from each page's JSON-LD offer
-(the authoritative value Meta matches against), falling back to the visible
+Just run it; establish_currency() POSTs curr=GBP first and every later GET in the
+session is GBP. The price is read from each page's JSON-LD offer (the
+authoritative value Meta matches against), falling back to the visible
 "From <sym>X" headline only if no structured offer is present.
 
 UK ENGLISH
@@ -26,8 +26,7 @@ Titles and descriptions are taken verbatim from the live UK site.
 
 USAGE
     pip install requests beautifulsoup4 lxml
-    python goldentours_meta_feed_gbp.py --out-dir ./out          # run from the UK
-    python goldentours_meta_feed_gbp.py --proxy <uk-proxy-url> --out-dir ./out
+    python goldentours_meta_feed_gbp.py --out-dir ./out
     python goldentours_meta_feed_gbp.py --limit 25               # quick test
 """
 
@@ -344,22 +343,15 @@ def main():
                     help="exit non-zero (don't write) if any page is in the wrong currency")
     ap.add_argument("--min-products", type=int, default=0,
                     help="exit non-zero if fewer than this many products were extracted")
-    ap.add_argument("--proxy", default=None,
-                    help="route all requests through this proxy URL so the crawl "
-                         "egresses from a UK IP (e.g. http://user:pass@uk-host:port). "
-                         "Also honours the HTTPS_PROXY/HTTP_PROXY environment variables.")
     args = ap.parse_args()
 
     cookies = parse_cookies(args.cookie)
 
     session = requests.Session()
-    if args.proxy:
-        session.proxies.update({"http": args.proxy, "https": args.proxy})
-        print(f"Routing requests via proxy: {args.proxy.split('@')[-1]}", file=sys.stderr)
 
     # Force the currency via the site's POST selector so it renders GBP from any
-    # IP (incl. GitHub's US runners) - no UK proxy needed. The strict-currency
-    # guard below still refuses to write if this ever fails to take effect.
+    # IP (incl. GitHub's US runners) - no proxy needed. The strict-currency guard
+    # below still refuses to write if this ever fails to take effect.
     establish_currency(session, args.currency, cookies)
 
     items = build_items(args.currency, session, cookies, args.limit)
