@@ -284,7 +284,9 @@ def build_items(currency, session, cookies, limit=None):
 
 
 def write_csv(items, currency, path):
-    cols = ["id", "title", "description", "availability", "condition",
+    # No 'condition' field: these are bookable services (tours/experiences), not
+    # physical goods, so new/used/refurbished doesn't apply.
+    cols = ["id", "title", "description", "availability",
             "price", "link", "image_link", "brand", "product_type"]
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
@@ -293,7 +295,7 @@ def write_csv(items, currency, path):
             w.writerow({
                 "id": p["id"], "title": p["title"],
                 "description": (p["description"] or "").replace("\n", " "),
-                "availability": "in stock", "condition": "new",
+                "availability": "in stock",
                 "price": price_value(p, currency), "link": p["link"],
                 "image_link": p["image_link"], "brand": BRAND,
                 "product_type": p["product_type"],
@@ -314,7 +316,7 @@ def write_xml(items, currency, path):
                 f"<g:link>{esc(p['link'])}</g:link>",
                 f"<g:image_link>{esc(p['image_link'])}</g:image_link>",
                 "<g:availability>in stock</g:availability>",
-                "<g:condition>new</g:condition>", f"<g:brand>{BRAND}</g:brand>",
+                f"<g:brand>{BRAND}</g:brand>",
                 f"<g:price>{price_value(p, currency)}</g:price>",
                 f"<g:product_type>{esc(p['product_type'])}</g:product_type>", "</item>"]
     out += ["</channel>", "</rss>"]
