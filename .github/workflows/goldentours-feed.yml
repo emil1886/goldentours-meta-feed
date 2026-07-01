@@ -1,7 +1,8 @@
 name: Build Golden Tours Meta feed
 
-# Rebuilds the GBP feed daily from the live site and commits it into ./docs,
-# which GitHub Pages serves at a public URL Meta can read.
+# Rebuilds the GBP feed daily from the live site and deploys ./docs to GitHub
+# Pages (artifact-based deployment - no Jekyll). Also commits the refreshed feed
+# back to main for history/transparency.
 #
 # Currency: the site prices by IP by default, BUT its on-page currency selector
 # is a POST (form#currform -> POST curr=<code>) that makes the server issue a
@@ -17,15 +18,20 @@ on:
 
 permissions:
   contents: write          # commit the regenerated feed back to main
+  pages: write             # deploy to GitHub Pages
+  id-token: write          # OIDC token for the Pages deployment
 
 concurrency:
-  group: feed-build
+  group: pages
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -46,9 +52,9 @@ jobs:
             --min-products 300 \
             --out-dir docs
           # On abort (wrong currency / too few products) the job fails here and
-          # nothing is committed, so the previously published feed stays untouched.
+          # nothing is deployed, so the previously published feed stays untouched.
 
-      - name: Commit & push if the feed changed
+      - name: Commit refreshed feed to main (history)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -59,3 +65,12 @@ jobs:
             git commit -m "Daily feed refresh"
             git push
           fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
