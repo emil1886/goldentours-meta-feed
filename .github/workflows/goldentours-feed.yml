@@ -3,10 +3,12 @@ name: Build Golden Tours Meta feed
 # Rebuilds the GBP feed daily from the live site and commits it into ./docs,
 # which GitHub Pages serves at a public URL Meta can read.
 #
-# IMPORTANT: the site prices by IP geolocation, so the crawl MUST egress from a
-# UK IP. GitHub's hosted runners are US-based, so this routes requests through a
-# UK proxy supplied via the repo secret UK_PROXY. Without it the crawl returns
-# USD and the strict-currency guard refuses to write (last good feed stays live).
+# Currency: the site prices by IP by default, BUT its on-page currency selector
+# is a POST (form#currform -> POST curr=<code>) that makes the server issue a
+# "blessed" currency cookie which then sticks for the whole session, regardless
+# of egress IP. The crawler mirrors this (establish_currency), so it renders GBP
+# even from GitHub's US-based runners - no UK proxy or UK box required. The
+# strict-currency guard still refuses to write if GBP ever fails to take.
 
 on:
   schedule:
@@ -36,17 +38,10 @@ jobs:
       - name: Install dependencies
         run: pip install requests beautifulsoup4 lxml
 
-      - name: Build feed (GBP via UK proxy, strict guards) into ./docs
-        env:
-          UK_PROXY: ${{ secrets.UK_PROXY }}
+      - name: Build feed (GBP via POST currency selector, strict guards) into ./docs
         run: |
-          if [ -z "$UK_PROXY" ]; then
-            echo "::error::Repo secret UK_PROXY is not set. The crawl would run from GitHub's US IP and return USD, which the strict-currency guard rejects. Add a UK proxy URL under Settings -> Secrets and variables -> Actions -> New repository secret (name: UK_PROXY)."
-            exit 1
-          fi
           python goldentours_meta_feed_gbp.py \
             --currency GBP \
-            --proxy "$UK_PROXY" \
             --strict-currency \
             --min-products 300 \
             --out-dir docs

@@ -87,6 +87,35 @@ def get(url, session, cookies):
     return r.text
 
 
+def establish_currency(session, currency, cookies):
+    """Force the site's currency for the whole session, independent of egress IP.
+
+    The site's on-page currency selector is a POST form (form#currform -> POST
+    curr=<code>), and the server honours THAT by issuing a "blessed" curr cookie
+    that then sticks for every later GET in the session. A self-supplied curr
+    cookie or ?curr= parameter is ignored - only the POST works. Mirroring it
+    here lets the crawl render GBP even from a non-UK IP (e.g. GitHub's US
+    runners), so no UK proxy is required. Prices are unchanged by this - it only
+    switches the displayed currency (verified: GBP via POST matches the natural
+    UK render). The strict-currency guard remains the safety net if this ever
+    stops working.
+    """
+    # POST to the sitemap: it's the most stable page (discovery needs it anyway)
+    # and, unlike the homepage, it doesn't redirect - a redirect would turn the
+    # POST into a GET and drop the form data, so the currency wouldn't take.
+    code = currency.upper()
+    r = session.post(SITEMAP, data={"curr": code}, headers=HEADERS,
+                     cookies=cookies, timeout=30)
+    r.raise_for_status()
+    got = session.cookies.get("curr")
+    print(f"Established currency via POST curr={code} (session cookie curr={got})",
+          file=sys.stderr)
+    if got != code:
+        print(f"WARN: currency cookie is {got!r}, expected {code!r}; the POST may "
+              f"not have taken. The strict-currency guard will catch a bad feed.",
+              file=sys.stderr)
+
+
 def discover_product_urls(session, cookies):
     soup = BeautifulSoup(get(SITEMAP, session, cookies), "lxml")
     urls = set(EXTRA_PRODUCT_URLS)
@@ -322,16 +351,17 @@ def main():
     args = ap.parse_args()
 
     cookies = parse_cookies(args.cookie)
-    if args.currency.upper() == "GBP":
-        print("Note: GBP comes from the site's IP geolocation, not a cookie. "
-              "This crawl must egress from a UK connection (run locally in the UK, "
-              "or via --proxy / a UK proxy); otherwise the strict-currency guard "
-              "refuses to write.", file=sys.stderr)
 
     session = requests.Session()
     if args.proxy:
         session.proxies.update({"http": args.proxy, "https": args.proxy})
         print(f"Routing requests via proxy: {args.proxy.split('@')[-1]}", file=sys.stderr)
+
+    # Force the currency via the site's POST selector so it renders GBP from any
+    # IP (incl. GitHub's US runners) - no UK proxy needed. The strict-currency
+    # guard below still refuses to write if this ever fails to take effect.
+    establish_currency(session, args.currency, cookies)
+
     items = build_items(args.currency, session, cookies, args.limit)
     print(f"\nExtracted {len(items)} products", file=sys.stderr)
 
