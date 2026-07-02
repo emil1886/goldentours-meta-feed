@@ -21,6 +21,13 @@ session is GBP. The price is read from each page's JSON-LD offer (the
 authoritative value Meta matches against), falling back to the visible
 "From <sym>X" headline only if no structured offer is present.
 
+PRICING (sale / % off)
+Product pages show only a single "From" price, but the category listing cards
+show the original "was" price where a product is discounted. build_was_map()
+reads those, and where "was" > "From" the feed carries price=was (original) and
+sale_price=from, so Meta can show the original struck through with a "% off"
+label. Products with no genuine discount carry price=from and no sale_price.
+
 UK ENGLISH
 Titles and descriptions are taken verbatim from the live UK site.
 
@@ -76,6 +83,10 @@ EXTRA_PRODUCT_URLS = [
 
 PRICE_FROM_RE = re.compile(r"From\s*([\$£€])\s*([\d,]+\.?\d*)", re.I)
 PRICE_WAS_RE = re.compile(r"was\s*([\$£€])\s*([\d,]+\.?\d*)", re.I)
+# Listing-card price patterns (number only) used to read a product card's
+# "From £X was £Y" on category pages.
+LISTING_FROM_RE = re.compile(r"From\s*[\$£€]\s*([\d,]+\.?\d*)", re.I)
+LISTING_WAS_RE = re.compile(r"was\s*[\$£€]\s*([\d,]+\.?\d*)", re.I)
 ACTIVITY_RE = re.compile(r"Activity code[:\s]*</strong>?\s*([A-Z0-9]+)", re.I)
 ACTIVITY_RE2 = re.compile(r"Activity code[:\s]+([A-Z0-9]{2,})", re.I)
 
@@ -135,6 +146,61 @@ def discover_product_urls(session, cookies):
         if len(segments) == 2:
             urls.add(f"{BASE}{path.rstrip('/')}")
     return sorted(urls)
+
+
+def build_was_map(session, cookies):
+    """Map product path -> original ('was') price, read from category LISTING pages.
+
+    Product pages show only a single 'From' price; the original/RRP ('was £Y')
+    is shown on the category listing cards. We fetch each category page once and,
+    for each product card, read the From + was from the SMALLEST ancestor that
+    holds exactly one 'From' price (so we never read a neighbouring card). We keep
+    the was only where it is a genuine discount (was > from). This feeds Meta's
+    price/sale_price so a real "% off" can display. Returns {url_path: was_float}.
+    """
+    categories = sorted({urlparse(u).path.strip("/").split("/")[0]
+                         for u in discover_product_urls(session, cookies)
+                         if len([s for s in urlparse(u).path.split("/") if s]) == 2})
+    was_map = {}
+    for i, cat in enumerate(categories, 1):
+        cat_url = f"{BASE}/{cat}"
+        try:
+            soup = BeautifulSoup(get(cat_url, session, cookies), "lxml")
+        except Exception as e:
+            print(f"[was {i}/{len(categories)}] ERR {cat_url}  {e}", file=sys.stderr)
+            continue
+        for a in soup.select("a[href]"):
+            parts = urlparse(urljoin(BASE + "/", a.get("href", "")))
+            if parts.netloc not in ("www.goldentours.com", "goldentours.com"):
+                continue
+            segs = [s for s in parts.path.split("/") if s]
+            if len(segs) != 2:
+                continue
+            # Climb to the smallest ancestor holding exactly one 'From' price:
+            # that is this product's own card. If an ancestor holds more than one
+            # 'From', we have climbed into several cards - stop, don't guess.
+            card, frm, was = a, None, None
+            for _ in range(8):
+                if card is None:
+                    break
+                froms = LISTING_FROM_RE.findall(card.get_text(" ", strip=True))
+                if len(froms) == 1:
+                    frm = float(froms[0].replace(",", ""))
+                    wm = LISTING_WAS_RE.findall(card.get_text(" ", strip=True))
+                    was = float(wm[0].replace(",", "")) if len(wm) == 1 else None
+                    break
+                if len(froms) > 1:
+                    break
+                card = card.parent
+            if frm is None or was is None:
+                continue
+            path = f"/{segs[0]}/{segs[1]}"
+            if was > frm:
+                was_map.setdefault(path, was)
+        time.sleep(0.4)
+    print(f"was-map: {len(was_map)} products carry a genuine 'was' price "
+          f"(scanned {len(categories)} category listings)", file=sys.stderr)
+    return was_map
 
 
 def meta_tag(soup, prop=None, name=None):
@@ -203,7 +269,6 @@ def parse_product(url, raw):
     canonical = meta_tag(soup, prop="og:url") or url
 
     text = soup.get_text(" ", strip=True)
-    was_m = PRICE_WAS_RE.search(text)
 
     # Price: prefer the structured JSON-LD offer (authoritative, Meta-matching);
     # fall back to the visible "From <sym>X" headline only if no JSON-LD offer.
@@ -219,7 +284,9 @@ def parse_product(url, raw):
         currency_code = SYMBOL_CURRENCY.get(symbol, "")
         from_price = from_m.group(2).replace(",", "")
 
-    was_price = was_m.group(2).replace(",", "") if was_m else None
+    # 'was' (original) price is NOT on the product page - only on the category
+    # listing cards. It is filled in later from the was-map (build_was_map).
+    was_price = None
 
     ac = ACTIVITY_RE.search(raw) or ACTIVITY_RE2.search(text)
     slug = urlparse(canonical).path.rstrip("/").split("/")[-1]
@@ -237,11 +304,21 @@ def parse_product(url, raw):
     }
 
 
-def price_value(p, currency):
-    return f"{p['from_price']} {currency}"
+def price_fields(p, currency):
+    """Return (price, sale_price) for the feed.
+
+    When the product has a genuine original ('was') price higher than its 'From'
+    price, price=was and sale_price=from, so Meta shows the original struck
+    through with a "% off" label. Otherwise price=from and sale_price is empty.
+    """
+    frm = float(p["from_price"])
+    was = p.get("was_price")
+    if was and float(was) > frm:
+        return f"{float(was):.2f} {currency}", f"{frm:.2f} {currency}"
+    return f"{frm:.2f} {currency}", ""
 
 
-def build_items(currency, session, cookies, limit=None):
+def build_items(currency, session, cookies, limit=None, was_map=None):
     candidates = discover_product_urls(session, cookies)
     if limit:
         candidates = candidates[:limit]
@@ -251,6 +328,10 @@ def build_items(currency, session, cookies, limit=None):
         try:
             p = parse_product(url, get(url, session, cookies))
             if p:
+                if was_map:
+                    wp = was_map.get(urlparse(p["link"]).path.rstrip("/"))
+                    if wp and wp > float(p["from_price"]):
+                        p["was_price"] = f"{wp:.2f}"
                 if p["currency_code"] and p["currency_code"] != want:
                     wrong_currency += 1
                 items.append(p)
@@ -287,16 +368,17 @@ def write_csv(items, currency, path):
     # No 'condition' field: these are bookable services (tours/experiences), not
     # physical goods, so new/used/refurbished doesn't apply.
     cols = ["id", "title", "description", "availability",
-            "price", "link", "image_link", "brand", "product_type"]
+            "price", "sale_price", "link", "image_link", "brand", "product_type"]
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
         for p in items:
+            price, sale_price = price_fields(p, currency)
             w.writerow({
                 "id": p["id"], "title": p["title"],
                 "description": (p["description"] or "").replace("\n", " "),
                 "availability": "in stock",
-                "price": price_value(p, currency), "link": p["link"],
+                "price": price, "sale_price": sale_price, "link": p["link"],
                 "image_link": p["image_link"], "brand": BRAND,
                 "product_type": p["product_type"],
             })
@@ -310,6 +392,7 @@ def write_xml(items, currency, path):
            f"<link>{BASE}</link>",
            "<description>Tours, attraction tickets and experiences</description>"]
     for p in items:
+        price, sale_price = price_fields(p, currency)
         out += ["<item>", f"<g:id>{esc(p['id'])}</g:id>",
                 f"<g:title>{esc(p['title'])}</g:title>",
                 f"<g:description>{esc(p['description'])}</g:description>",
@@ -317,8 +400,10 @@ def write_xml(items, currency, path):
                 f"<g:image_link>{esc(p['image_link'])}</g:image_link>",
                 "<g:availability>in stock</g:availability>",
                 f"<g:brand>{BRAND}</g:brand>",
-                f"<g:price>{price_value(p, currency)}</g:price>",
-                f"<g:product_type>{esc(p['product_type'])}</g:product_type>", "</item>"]
+                f"<g:price>{price}</g:price>"]
+        if sale_price:
+            out += [f"<g:sale_price>{sale_price}</g:sale_price>"]
+        out += [f"<g:product_type>{esc(p['product_type'])}</g:product_type>", "</item>"]
     out += ["</channel>", "</rss>"]
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(out))
@@ -356,8 +441,13 @@ def main():
     # below still refuses to write if this ever fails to take effect.
     establish_currency(session, args.currency, cookies)
 
-    items = build_items(args.currency, session, cookies, args.limit)
-    print(f"\nExtracted {len(items)} products", file=sys.stderr)
+    # Read original ('was') prices from the category listing pages so the feed can
+    # carry price (original) + sale_price (from) for Meta's "% off" labels.
+    was_map = build_was_map(session, cookies)
+
+    items = build_items(args.currency, session, cookies, args.limit, was_map)
+    n_sale = sum(1 for p in items if p.get("was_price"))
+    print(f"\nExtracted {len(items)} products ({n_sale} with a sale price)", file=sys.stderr)
 
     # Guards: fail loudly BEFORE writing, so a scheduled job never publishes a bad feed.
     want = args.currency.upper()

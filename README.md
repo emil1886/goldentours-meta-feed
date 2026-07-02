@@ -8,7 +8,17 @@ publishes it via GitHub Pages so Meta can fetch it on a schedule.
 
 The crawler discovers products from the site's HTML sitemap, reads each product
 page's JSON-LD offer (the authoritative price Meta matches against), and writes a
-Meta-compliant feed into `docs/`, which Pages deploys.
+Meta-compliant feed into `docs/`, which Pages deploys. No `condition` field is
+emitted (these are services, not physical goods).
+
+## Pricing / sale labels
+
+Product pages show a single "From £X". The category **listing cards** additionally
+show an original "was £Y" where a product is discounted. `build_was_map()` reads
+those, and where `was > From` the feed sets `price` = was (original) and
+`sale_price` = From (current) so Meta can display the original struck through with
+a "% off" label. Products without a genuine discount carry `price` = From and no
+`sale_price`.
 
 ## How it runs
 
