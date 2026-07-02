@@ -28,6 +28,13 @@ reads those, and where "was" > "From" the feed carries price=was (original) and
 sale_price=from, so Meta can show the original struck through with a "% off"
 label. Products with no genuine discount carry price=from and no sale_price.
 
+IMAGES (square)
+The site's product images are small landscape (~728x485) and look poor in the
+feed. process_images() centre-crops each to a square and upscales to 1080x1080,
+writes them to <out-dir>/images/, and repoints image_link at the hosted copy
+(--image-base-url). These are regenerated and deployed with the Pages artifact
+each run, not committed to git. Use --skip-images to keep the originals.
+
 UK ENGLISH
 Titles and descriptions are taken verbatim from the live UK site.
 
@@ -39,7 +46,9 @@ USAGE
 
 import argparse
 import csv
+import io
 import json
+import os
 import re
 import sys
 import time
@@ -52,6 +61,12 @@ from bs4 import BeautifulSoup
 BASE = "https://www.goldentours.com"
 SITEMAP = f"{BASE}/sitemap"
 BRAND = "Golden Tours"
+
+# Square-image cropping: the source product images are small landscape (~728x485)
+# and look poor in the Meta feed. We centre-crop to a square and upscale to this
+# edge, host the result, and repoint image_link at it.
+SQUARE_SIZE = 1080
+IMAGE_BASE_DEFAULT = "https://emil1886.github.io/goldentours-meta-feed/images"
 
 # Feed carries the starting-from price only (no "was"/sale_price), matching the
 # headline "From £X" price shown on each product page.
@@ -364,6 +379,59 @@ def build_items(currency, session, cookies, limit=None, was_map=None):
     return deduped
 
 
+def square_crop(raw_bytes, size=SQUARE_SIZE):
+    """Centre-crop image bytes to a square and resize to `size`; return JPEG bytes."""
+    from PIL import Image
+    im = Image.open(io.BytesIO(raw_bytes)).convert("RGB")
+    w, h = im.size
+    edge = min(w, h)
+    left, top = (w - edge) // 2, (h - edge) // 2
+    im = im.crop((left, top, left + edge, top + edge))
+    if edge != size:
+        im = im.resize((size, size), Image.LANCZOS)
+    buf = io.BytesIO()
+    im.save(buf, "JPEG", quality=85, optimize=True)
+    return buf.getvalue()
+
+
+def process_images(items, session, cookies, out_dir, image_base):
+    """Download each product's source image, centre-crop to a square, save under
+    out_dir/images/, and repoint image_link at the hosted square copy.
+
+    The site's product images are small landscape (~728x485) and look poor in the
+    Meta feed; a square crop frames them consistently. On any failure the item's
+    original image_link is kept, so a bad image never drops the product.
+    """
+    try:
+        import PIL  # noqa: F401
+    except ImportError:
+        print("WARN: Pillow not installed; skipping square-crop and keeping the "
+              "original landscape images. Run `pip install pillow` to enable.",
+              file=sys.stderr)
+        return
+    img_dir = os.path.join(out_dir, "images")
+    os.makedirs(img_dir, exist_ok=True)
+    ok = 0
+    for i, p in enumerate(items, 1):
+        src = p.get("image_link")
+        if not src:
+            continue
+        safe = re.sub(r"[^A-Za-z0-9_-]", "_", p["id"])[:100]
+        try:
+            r = session.get(src, headers=HEADERS, cookies=cookies, timeout=30)
+            r.raise_for_status()
+            with open(os.path.join(img_dir, f"{safe}.jpg"), "wb") as f:
+                f.write(square_crop(r.content))
+            p["image_link"] = f"{image_base.rstrip('/')}/{safe}.jpg"
+            ok += 1
+        except Exception as e:
+            print(f"[img {i}/{len(items)}] ERR {p['id']}  {e}; keeping original",
+                  file=sys.stderr)
+        time.sleep(0.2)
+    print(f"Square-cropped {ok}/{len(items)} images "
+          f"({SQUARE_SIZE}x{SQUARE_SIZE}) -> {img_dir}", file=sys.stderr)
+
+
 def write_csv(items, currency, path):
     # No 'condition' field: these are bookable services (tours/experiences), not
     # physical goods, so new/used/refurbished doesn't apply.
@@ -430,6 +498,10 @@ def main():
                     help="exit non-zero (don't write) if any page is in the wrong currency")
     ap.add_argument("--min-products", type=int, default=0,
                     help="exit non-zero if fewer than this many products were extracted")
+    ap.add_argument("--skip-images", action="store_true",
+                    help="don't square-crop/repoint images (keep original landscape URLs)")
+    ap.add_argument("--image-base-url", default=IMAGE_BASE_DEFAULT,
+                    help="public base URL where the cropped square images are served")
     args = ap.parse_args()
 
     cookies = parse_cookies(args.cookie)
@@ -460,6 +532,12 @@ def main():
                  f"Feed NOT written - the site or sitemap may have changed.")
 
     base = args.out_dir.rstrip("/")
+
+    # Square-crop images and repoint image_link (after the guards, so we don't do
+    # the image work on a run that's about to abort).
+    if not args.skip_images:
+        process_images(items, session, cookies, base, args.image_base_url)
+
     write_csv(items, args.currency, f"{base}/goldentours_meta_feed.csv")
     write_xml(items, args.currency, f"{base}/goldentours_meta_feed.xml")
     print(f"Wrote {base}/goldentours_meta_feed.csv\nWrote {base}/goldentours_meta_feed.xml",

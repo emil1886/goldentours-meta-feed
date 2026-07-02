@@ -11,6 +11,15 @@ page's JSON-LD offer (the authoritative price Meta matches against), and writes 
 Meta-compliant feed into `docs/`, which Pages deploys. No `condition` field is
 emitted (these are services, not physical goods).
 
+## Images (square)
+
+The site's product images are small landscape (~728×485), which look poor in the
+feed. The pipeline centre-crops each to a **square** and upscales to **1080×1080**,
+serves them from `docs/images/` on Pages, and points `image_link` there. These are
+regenerated and deployed with the Pages artifact on every run (not committed to
+git, to keep the repo lean). A sharper result would require higher-resolution
+source images from Golden Tours.
+
 ## Pricing / sale labels
 
 Product pages show a single "From £X". The category **listing cards** additionally

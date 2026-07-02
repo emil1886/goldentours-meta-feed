@@ -42,7 +42,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests beautifulsoup4 lxml
+        run: pip install requests beautifulsoup4 lxml pillow
 
       - name: Build feed (GBP via POST currency selector, strict guards) into ./docs
         run: |

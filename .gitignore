@@ -6,3 +6,7 @@ out/
 probe*.py
 inspect_gate.py
 validate.py
+
+# Generated square images: regenerated + deployed via the Pages artifact each
+# run, so no need to commit them (keeps the repo lean).
+docs/images/
