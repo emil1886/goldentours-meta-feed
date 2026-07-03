@@ -899,7 +899,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/AGPE.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>8.00 GBP</g:price>
+<g:price>12.00 GBP</g:price>
 <g:product_type>Fun Things To Do In London</g:product_type>
 </item>
 <item>
@@ -1031,7 +1031,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/RPGE.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>20.84 GBP</g:price>
+<g:price>27.64 GBP</g:price>
 <g:product_type>Fun Things To Do In London</g:product_type>
 </item>
 <item>
@@ -1086,7 +1086,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/58STRT.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>134.85 GBP</g:price>
+<g:price>169.85 GBP</g:price>
 <g:product_type>Immersive Experiences</g:product_type>
 </item>
 <item>
@@ -1097,7 +1097,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/PXML.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>27.00 GBP</g:price>
+<g:price>24.00 GBP</g:price>
 <g:product_type>Immersive Experiences</g:product_type>
 </item>
 <item>
@@ -1134,6 +1134,17 @@
 <g:product_type>Immersive Experiences</g:product_type>
 </item>
 <item>
+<g:id>TWE</g:id>
+<g:title>Timewalk Exhibition</g:title>
+<g:description>Discover Timewalk, an immersive journey through humanity's history, exploring ancient civilisations like Göbeklitepe, Babylon, and Egypt. Experience the adventure!</g:description>
+<g:link>https://www.goldentours.com/immersive-experiences/timewalk-exhibition</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/TWE.jpg</g:image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>31.50 GBP</g:price>
+<g:product_type>Immersive Experiences</g:product_type>
+</item>
+<item>
 <g:id>TM</g:id>
 <g:title>Twist Museum Immersive Experience</g:title>
 <g:description>See a number of immersive, mind-bending exhibits at the Twist Museum London! Enjoy 80 optical illusions, photo opportunities and more!</g:description>
@@ -1141,7 +1152,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/TM.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>26.00 GBP</g:price>
+<g:price>29.50 GBP</g:price>
 <g:product_type>Immersive Experiences</g:product_type>
 </item>
 <item>
@@ -1230,7 +1241,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/RL360.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>17.50 GBP</g:price>
+<g:price>18.50 GBP</g:price>
 <g:product_type>Liverpool Tours From London</g:product_type>
 </item>
 <item>
@@ -1781,7 +1792,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/208.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>29.00 GBP</g:price>
+<g:price>30.00 GBP</g:price>
 <g:product_type>London By Night</g:product_type>
 </item>
 <item>
@@ -1838,6 +1849,17 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>40.00 GBP</g:price>
+<g:product_type>London Food Tours</g:product_type>
+</item>
+<item>
+<g:id>GMZ</g:id>
+<g:title>Gourmaze</g:title>
+<g:description>Discover London's culinary scene with self-guided food tours with Gourmaze. Enjoy British classics, Asian street food, and more while exploring London.</g:description>
+<g:link>https://www.goldentours.com/london-food-tours/gourmaze</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/GMZ.jpg</g:image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>49.00 GBP</g:price>
 <g:product_type>London Food Tours</g:product_type>
 </item>
 <item>
@@ -2774,7 +2796,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/OSH.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>25.38 GBP</g:price>
+<g:price>22.23 GBP</g:price>
 <g:product_type>Out Of London Attractions</g:product_type>
 </item>
 <item>
@@ -2939,7 +2961,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/WAT.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>14.26 GBP</g:price>
+<g:price>12.69 GBP</g:price>
 <g:product_type>Out Of London Attractions</g:product_type>
 </item>
 <item>
@@ -3139,7 +3161,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/SC1.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>28.00 GBP</g:price>
+<g:price>59.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 </item>
 <item>
@@ -3161,7 +3183,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/LERCO.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>15.50 GBP</g:price>
+<g:price>19.50 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 </item>
 <item>
@@ -3172,7 +3194,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/LC1.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>59.00 GBP</g:price>
+<g:price>56.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 </item>
 <item>
@@ -3205,7 +3227,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/TZDC.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>94.00 GBP</g:price>
+<g:price>119.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 </item>
 <item>
@@ -3249,7 +3271,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/38.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>136.00 GBP</g:price>
+<g:price>163.01 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 </item>
 <item>
