@@ -13,6 +13,7 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>49.00 GBP</g:price>
+<g:sale_price>46.55 GBP</g:sale_price>
 <g:product_type>Afternoon Tea In London</g:product_type>
 </item>
 <item>
@@ -34,8 +35,8 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/BV.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>52.00 GBP</g:price>
-<g:sale_price>49.40 GBP</g:sale_price>
+<g:price>49.00 GBP</g:price>
+<g:sale_price>45.32 GBP</g:sale_price>
 <g:product_type>Afternoon Tea In London</g:product_type>
 </item>
 <item>
@@ -58,6 +59,7 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>49.00 GBP</g:price>
+<g:sale_price>46.55 GBP</g:sale_price>
 <g:product_type>Afternoon Tea In London</g:product_type>
 </item>
 <item>
@@ -69,6 +71,7 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>49.00 GBP</g:price>
+<g:sale_price>46.55 GBP</g:sale_price>
 <g:product_type>Afternoon Tea In London</g:product_type>
 </item>
 <item>
@@ -80,6 +83,7 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>49.00 GBP</g:price>
+<g:sale_price>46.55 GBP</g:sale_price>
 <g:product_type>Afternoon Tea In London</g:product_type>
 </item>
 <item>
@@ -312,7 +316,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/CWW.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>32.00 GBP</g:price>
+<g:price>42.87 GBP</g:price>
 <g:product_type>British Theme Parks</g:product_type>
 </item>
 <item>
@@ -895,7 +899,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/ABBA.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>80.50 GBP</g:price>
+<g:price>57.50 GBP</g:price>
 <g:product_type>Fun Things To Do In London</g:product_type>
 </item>
 <item>
@@ -906,7 +910,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/AGPE.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>16.00 GBP</g:price>
+<g:price>8.00 GBP</g:price>
 <g:product_type>Fun Things To Do In London</g:product_type>
 </item>
 <item>
@@ -1038,7 +1042,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/RPGE.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>33.17 GBP</g:price>
+<g:price>30.19 GBP</g:price>
 <g:product_type>Fun Things To Do In London</g:product_type>
 </item>
 <item>
@@ -1093,7 +1097,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/58STRT.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>69.50 GBP</g:price>
+<g:price>134.85 GBP</g:price>
 <g:product_type>Immersive Experiences</g:product_type>
 </item>
 <item>
@@ -1237,7 +1241,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/RL360.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>17.50 GBP</g:price>
+<g:price>18.50 GBP</g:price>
 <g:product_type>Liverpool Tours From London</g:product_type>
 </item>
 <item>
@@ -1733,7 +1737,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/UAO2.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>44.00 GBP</g:price>
+<g:price>42.00 GBP</g:price>
 <g:product_type>London Attraction Tickets</g:product_type>
 </item>
 <item>
@@ -1888,7 +1892,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/YFCC.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>34.01 GBP</g:price>
+<g:price>29.00 GBP</g:price>
 <g:product_type>London Food Tours</g:product_type>
 </item>
 <item>
@@ -2594,7 +2598,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/RHSB.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>15.75 GBP</g:price>
+<g:price>15.05 GBP</g:price>
 <g:product_type>Manchester Tours Tickets</g:product_type>
 </item>
 <item>
@@ -2803,7 +2807,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/OSH.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>22.23 GBP</g:price>
+<g:price>25.38 GBP</g:price>
 <g:product_type>Out Of London Attractions</g:product_type>
 </item>
 <item>
@@ -3113,7 +3117,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/PWT1.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>179.50 GBP</g:price>
+<g:price>329.00 GBP</g:price>
 <g:product_type>Private Tours In London And The Uk</g:product_type>
 </item>
 <item>
@@ -3146,7 +3150,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/ATC.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>85.00 GBP</g:price>
+<g:price>89.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 </item>
 <item>
@@ -3168,7 +3172,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/SC1.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>63.01 GBP</g:price>
+<g:price>52.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 </item>
 <item>
@@ -3201,7 +3205,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/LC1.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>66.00 GBP</g:price>
+<g:price>73.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 </item>
 <item>
@@ -3278,7 +3282,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/38.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>148.01 GBP</g:price>
+<g:price>118.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 </item>
 <item>
@@ -3334,7 +3338,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/thames-cruises.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>85.00 GBP</g:price>
+<g:price>89.00 GBP</g:price>
 <g:product_type>Thames Cruises</g:product_type>
 </item>
 <item>
@@ -3345,7 +3349,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/BVWA.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>52.00 GBP</g:price>
+<g:price>49.00 GBP</g:price>
 <g:product_type>Themed Afternoon Tea</g:product_type>
 </item>
 <item>
