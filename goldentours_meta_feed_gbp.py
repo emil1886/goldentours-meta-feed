@@ -327,6 +327,27 @@ def breadcrumb_category(raw):
     return None
 
 
+def activity_category(site_category):
+    """Map a free-text site category to Meta's activity_category enum
+    (Comedy;Concert;Conference;Sports;Theater;Tour;Transfer;Other).
+
+    Keyword mapping: airport/transfer -> Transfer; anything tour-like -> Tour
+    (this wins over 'ticket', so "Palace Tour and Tickets" is a Tour); standalone
+    attraction/museum/ticket/pass items -> Other; default Tour (a tours company).
+    """
+    c = (site_category or "").lower()
+    if "transfer" in c or "airport" in c:
+        return "Transfer"
+    if any(k in c for k in ("tour", "trip", "sightseeing", "cruise", "walking",
+                            "excursion", "safari")):
+        return "Tour"
+    if any(k in c for k in ("ticket", "attraction", "museum", "exhibition", "pass",
+                            "zoo", "dungeon", "eye", "immersive", "experience",
+                            "palace", "frameless", "theme park", "gardens")):
+        return "Other"
+    return "Tour"
+
+
 def parse_product(url, raw):
     soup = BeautifulSoup(raw, "lxml")
 
@@ -372,6 +393,10 @@ def parse_product(url, raw):
     # falling back to the URL slug prettified.
     seg1 = urlparse(canonical).path.strip("/").split("/")[0]
     product_type = breadcrumb_category(raw) or seg1.replace("-", " ").title()
+    # Activity-catalogue fields: enum category + the full site category as the
+    # free-text sub-category (only used if the Meta catalogue is the Activity type).
+    act_category = activity_category(product_type)
+    act_sub = product_type
 
     return {
         "id": pid, "title": title, "description": description,
@@ -379,6 +404,7 @@ def parse_product(url, raw):
         "currency_code": currency_code,
         "from_price": from_price, "was_price": was_price,
         "product_type": product_type, "custom_label_0": legacy_id,
+        "activity_category": act_category, "activity_sub_categories": act_sub,
     }
 
 
@@ -499,7 +525,8 @@ def write_csv(items, currency, path):
     # No 'condition' field: these are bookable services (tours/experiences), not
     # physical goods, so new/used/refurbished doesn't apply.
     cols = ["id", "title", "description", "availability", "price", "sale_price",
-            "link", "image_link", "brand", "product_type", "custom_label_0"]
+            "link", "image_link", "brand", "product_type", "custom_label_0",
+            "activity_category", "activity_sub_categories"]
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
@@ -513,6 +540,8 @@ def write_csv(items, currency, path):
                 "image_link": p["image_link"], "brand": BRAND,
                 "product_type": p["product_type"],
                 "custom_label_0": p.get("custom_label_0", ""),
+                "activity_category": p.get("activity_category", ""),
+                "activity_sub_categories": p.get("activity_sub_categories", ""),
             })
 
 
@@ -538,6 +567,11 @@ def write_xml(items, currency, path):
         out += [f"<g:product_type>{esc(p['product_type'])}</g:product_type>"]
         if p.get("custom_label_0"):
             out += [f"<g:custom_label_0>{esc(p['custom_label_0'])}</g:custom_label_0>"]
+        if p.get("activity_category"):
+            out += [f"<g:activity_category>{esc(p['activity_category'])}</g:activity_category>"]
+        if p.get("activity_sub_categories"):
+            out += [f"<g:activity_sub_categories>{esc(p['activity_sub_categories'])}"
+                    f"</g:activity_sub_categories>"]
         out += ["</item>"]
     out += ["</channel>", "</rss>"]
     with open(path, "w", encoding="utf-8") as f:

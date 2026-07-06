@@ -20,13 +20,23 @@ feed uses that UUID (scraped from each page's `productID`) as the `id`, keeping 
 old activity code in `custom_label_0`. Where no `productID` exists (~3%) it falls
 back to the activity code/slug.
 
-## Category (`product_type`)
+## Category
 
-The `product_type` field carries the activity's site category, taken from the
-product page breadcrumb (e.g. `/day-trips-from-london/...` →
-`Tours & Day Trips from London`). Multi-level breadcrumbs are joined with ` > `.
-This is Meta's merchant-category field, usable for ad-set targeting and product
-sets. Falls back to the prettified URL slug where no breadcrumb exists.
+The site category comes from the product page breadcrumb (e.g.
+`/day-trips-from-london/...` → `Tours & Day Trips from London`; multi-level
+breadcrumbs joined with ` > `). It populates three fields:
+
+- **`product_type`** — the full site category (Meta merchant-category field; ad-set
+  targeting / product sets on a standard catalogue).
+- **`activity_sub_categories`** — the same full site category (Activity catalogue).
+- **`activity_category`** — one of Meta's fixed enum values
+  (`Comedy;Concert;Conference;Sports;Theater;Tour;Transfer;Other`), keyword-mapped:
+  airport/transfer → `Transfer`; tour/trip/sightseeing/cruise/walking → `Tour`
+  (wins over "ticket"); standalone attraction/museum/ticket/pass → `Other`; default
+  `Tour`.
+
+The `activity_*` fields are only used if the Meta catalogue is the **Activity**
+type; on a standard products catalogue they're ignored and `product_type` applies.
 
 ## Images (square)
 
