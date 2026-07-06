@@ -53,6 +53,7 @@ USAGE
 
 import argparse
 import csv
+import html
 import io
 import json
 import os
@@ -284,6 +285,48 @@ def jsonld_price(raw):
     return None
 
 
+def _walk_breadcrumbs(node):
+    out = []
+    if isinstance(node, dict):
+        if node.get("@type") == "BreadcrumbList":
+            out.append(node)
+        for v in node.values():
+            out += _walk_breadcrumbs(v)
+    elif isinstance(node, list):
+        for v in node:
+            out += _walk_breadcrumbs(v)
+    return out
+
+
+def breadcrumb_category(raw):
+    """Return the site category path from the page's JSON-LD BreadcrumbList - the
+    crumbs between 'Home' and the product itself, e.g. 'Tours & Day Trips from
+    London'. Joins multi-level categories with ' > '. None if absent.
+    """
+    for m in re.finditer(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>',
+                         raw, re.S | re.I):
+        try:
+            data = json.loads(m.group(1).strip())
+        except Exception:
+            continue
+        for node in _walk_breadcrumbs(data):
+            names = []
+            for it in node.get("itemListElement") or []:
+                if not isinstance(it, dict):
+                    continue
+                nm = it.get("name") or (it.get("item") or {}).get("name") \
+                    if isinstance(it.get("item"), dict) else it.get("name")
+                if nm:
+                    names.append(html.unescape(nm.strip()))
+            # drop leading 'Home' and the trailing product name
+            if len(names) >= 2:
+                cats = names[1:-1] if names[0].lower() == "home" else names[:-1]
+                cats = [c for c in cats if c]
+                if cats:
+                    return " > ".join(cats)
+    return None
+
+
 def parse_product(url, raw):
     soup = BeautifulSoup(raw, "lxml")
 
@@ -324,8 +367,11 @@ def parse_product(url, raw):
     vm = VENTRATA_PID_RE.search(raw)
     pid = vm.group(1) if vm else legacy_id
 
+    # product_type is Meta's merchant-category field. Prefer the real site
+    # category from the page breadcrumb (e.g. "Tours & Day Trips from London"),
+    # falling back to the URL slug prettified.
     seg1 = urlparse(canonical).path.strip("/").split("/")[0]
-    product_type = seg1.replace("-", " ").title()
+    product_type = breadcrumb_category(raw) or seg1.replace("-", " ").title()
 
     return {
         "id": pid, "title": title, "description": description,

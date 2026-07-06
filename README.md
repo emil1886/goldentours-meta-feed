@@ -20,6 +20,14 @@ feed uses that UUID (scraped from each page's `productID`) as the `id`, keeping 
 old activity code in `custom_label_0`. Where no `productID` exists (~3%) it falls
 back to the activity code/slug.
 
+## Category (`product_type`)
+
+The `product_type` field carries the activity's site category, taken from the
+product page breadcrumb (e.g. `/day-trips-from-london/...` →
+`Tours & Day Trips from London`). Multi-level breadcrumbs are joined with ` > `.
+This is Meta's merchant-category field, usable for ad-set targeting and product
+sets. Falls back to the prettified URL slug where no breadcrumb exists.
+
 ## Images (square)
 
 The site's product images are small landscape (~728×485), which look poor in the
