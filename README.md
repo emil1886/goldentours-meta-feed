@@ -11,6 +11,15 @@ page's JSON-LD offer (the authoritative price Meta matches against), and writes 
 Meta-compliant feed into `docs/`, which Pages deploys. No `condition` field is
 emitted (these are services, not physical goods).
 
+## Content IDs (pixel matching)
+
+The catalogue `id` must equal what the Meta Pixel sends as `content_id`, otherwise
+pixel events (ViewContent / Purchase) don't match the catalogue. The site books
+through **Ventrata**, and its Pixel fires the **Ventrata product UUID**, so the
+feed uses that UUID (scraped from each page's `productID`) as the `id`, keeping the
+old activity code in `custom_label_0`. Where no `productID` exists (~3%) it falls
+back to the activity code/slug.
+
 ## Images (square)
 
 The site's product images are small landscape (~728×485), which look poor in the

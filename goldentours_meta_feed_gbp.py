@@ -35,6 +35,13 @@ writes them to <out-dir>/images/, and repoints image_link at the hosted copy
 (--image-base-url). These are regenerated and deployed with the Pages artifact
 each run, not committed to git. Use --skip-images to keep the originals.
 
+CONTENT IDS (pixel matching)
+The catalogue id must equal what the Meta Pixel fires as content_id, or events
+won't match the catalogue. The site books through Ventrata and the Pixel fires the
+Ventrata product UUID, so the feed uses that UUID (scraped from the page's
+"productID") as the id, and keeps the old activity code in custom_label_0. Where
+no productID is present (~3%) it falls back to the activity code/slug.
+
 UK ENGLISH
 Titles and descriptions are taken verbatim from the live UK site.
 
@@ -104,6 +111,11 @@ LISTING_FROM_RE = re.compile(r"From\s*[\$£€]\s*([\d,]+\.?\d*)", re.I)
 LISTING_WAS_RE = re.compile(r"was\s*[\$£€]\s*([\d,]+\.?\d*)", re.I)
 ACTIVITY_RE = re.compile(r"Activity code[:\s]*</strong>?\s*([A-Z0-9]+)", re.I)
 ACTIVITY_RE2 = re.compile(r"Activity code[:\s]+([A-Z0-9]{2,})", re.I)
+# The booking platform (Ventrata) product UUID - this is exactly what the Meta
+# Pixel fires as content_id, so it must be the catalogue id for events to match.
+VENTRATA_PID_RE = re.compile(
+    r'"productID"\s*:\s*"([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"',
+    re.I)
 
 
 def get(url, session, cookies):
@@ -305,7 +317,12 @@ def parse_product(url, raw):
 
     ac = ACTIVITY_RE.search(raw) or ACTIVITY_RE2.search(text)
     slug = urlparse(canonical).path.rstrip("/").split("/")[-1]
-    pid = (ac.group(1) if ac else slug)[:100]
+    legacy_id = (ac.group(1) if ac else slug)[:100]  # activity code / slug
+
+    # content_id: use the Ventrata productID (what the Pixel sends) so pixel events
+    # match the catalogue; fall back to the activity code/slug where it's absent.
+    vm = VENTRATA_PID_RE.search(raw)
+    pid = vm.group(1) if vm else legacy_id
 
     seg1 = urlparse(canonical).path.strip("/").split("/")[0]
     product_type = seg1.replace("-", " ").title()
@@ -315,7 +332,7 @@ def parse_product(url, raw):
         "link": canonical, "image_link": image, "symbol": symbol,
         "currency_code": currency_code,
         "from_price": from_price, "was_price": was_price,
-        "product_type": product_type,
+        "product_type": product_type, "custom_label_0": legacy_id,
     }
 
 
@@ -435,8 +452,8 @@ def process_images(items, session, cookies, out_dir, image_base):
 def write_csv(items, currency, path):
     # No 'condition' field: these are bookable services (tours/experiences), not
     # physical goods, so new/used/refurbished doesn't apply.
-    cols = ["id", "title", "description", "availability",
-            "price", "sale_price", "link", "image_link", "brand", "product_type"]
+    cols = ["id", "title", "description", "availability", "price", "sale_price",
+            "link", "image_link", "brand", "product_type", "custom_label_0"]
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
@@ -449,6 +466,7 @@ def write_csv(items, currency, path):
                 "price": price, "sale_price": sale_price, "link": p["link"],
                 "image_link": p["image_link"], "brand": BRAND,
                 "product_type": p["product_type"],
+                "custom_label_0": p.get("custom_label_0", ""),
             })
 
 
@@ -471,7 +489,10 @@ def write_xml(items, currency, path):
                 f"<g:price>{price}</g:price>"]
         if sale_price:
             out += [f"<g:sale_price>{sale_price}</g:sale_price>"]
-        out += [f"<g:product_type>{esc(p['product_type'])}</g:product_type>", "</item>"]
+        out += [f"<g:product_type>{esc(p['product_type'])}</g:product_type>"]
+        if p.get("custom_label_0"):
+            out += [f"<g:custom_label_0>{esc(p['custom_label_0'])}</g:custom_label_0>"]
+        out += ["</item>"]
     out += ["</channel>", "</rss>"]
     with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(out))
