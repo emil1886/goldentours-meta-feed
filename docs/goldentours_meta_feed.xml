@@ -299,7 +299,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/541689f8-e0b6-4160-a9b6-4fe73f35ef2f.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>15.75 GBP</g:price>
+<g:price>16.62 GBP</g:price>
 <g:product_type>Blackpool Tours &amp; Tickets</g:product_type>
 <g:custom_label_0>SLB</g:custom_label_0>
 <g:activity_category>Tour</g:activity_category>
@@ -688,7 +688,7 @@
 </item>
 <item>
 <g:id>cf5d3cec-2592-45df-a10a-bd0719a84c59</g:id>
-<g:title>Winston Churchill Day Tour – War Rooms and Blenheim Palace from London</g:title>
+<g:title>Blenheim Palace Day Tour with Cotswolds or Churchill's War Rooms from London</g:title>
 <g:description>Visit the real war rooms used by Winston Churchill, and then visit the stunning Blenheim palace!</g:description>
 <g:link>https://www.goldentours.com/cotswolds-tours/churchill-war-rooms-and-blenheim-palace</g:link>
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/cf5d3cec-2592-45df-a10a-bd0719a84c59.jpg</g:image_link>
@@ -960,6 +960,20 @@
 <g:price>59.00 GBP</g:price>
 <g:product_type>Festive Period - Christmas 2026</g:product_type>
 <g:custom_label_0>HH1C</g:custom_label_0>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Festive Period - Christmas 2026</g:activity_sub_categories>
+</item>
+<item>
+<g:id>40afb06a-55fc-4755-b3c7-0cf2b75d36f6</g:id>
+<g:title>Christmas at Blenheim Palace</g:title>
+<g:description>Discover the enchanting Christmas at Blenheim Palace, featuring a breathtaking illuminated light trail. Create unforgettable memories this festive season!</g:description>
+<g:link>https://www.goldentours.com/festive-period-christmas/christmas-at-blenheim-palace</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/40afb06a-55fc-4755-b3c7-0cf2b75d36f6.jpg</g:image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>43.00 GBP</g:price>
+<g:product_type>Festive Period - Christmas 2026</g:product_type>
+<g:custom_label_0>CBP</g:custom_label_0>
 <g:activity_category>Tour</g:activity_category>
 <g:activity_sub_categories>Festive Period - Christmas 2026</g:activity_sub_categories>
 </item>
@@ -1321,7 +1335,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/8126607d-ed8c-4c94-a153-d3ad2e48f3eb.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>27.64 GBP</g:price>
+<g:price>20.84 GBP</g:price>
 <g:product_type>Fun things to do in London and the UK</g:product_type>
 <g:custom_label_0>RPGE</g:custom_label_0>
 <g:activity_category>Tour</g:activity_category>
@@ -1398,6 +1412,20 @@
 <g:activity_sub_categories>Immersive Experiences in London &amp; the UK</g:activity_sub_categories>
 </item>
 <item>
+<g:id>16d81f44-89a3-4c46-8efd-f47cc8fa87ad</g:id>
+<g:title>Astronomers Take Over</g:title>
+<g:description>Experience the universe like never before at Astronomers Take Over! Engage with real astronomers and enjoy hands-on activities at the National Maritime Museum.</g:description>
+<g:link>https://www.goldentours.com/immersive-experiences/astronomers-take-over</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/16d81f44-89a3-4c46-8efd-f47cc8fa87ad.jpg</g:image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>8.00 GBP</g:price>
+<g:product_type>Immersive Experiences in London &amp; the UK</g:product_type>
+<g:custom_label_0>ATO</g:custom_label_0>
+<g:activity_category>Other</g:activity_category>
+<g:activity_sub_categories>Immersive Experiences in London &amp; the UK</g:activity_sub_categories>
+</item>
+<item>
 <g:id>a4c71b1e-1ad6-4a90-bb5d-230f96e3c176</g:id>
 <g:title>Paradox Museum London</g:title>
 <g:description>Visit the Paradox Museum for a mind-bending day out! Blending science and perception, be stumped by over 50 paradoxical exhibits!</g:description>
@@ -1405,7 +1433,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/a4c71b1e-1ad6-4a90-bb5d-230f96e3c176.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>24.00 GBP</g:price>
+<g:price>29.00 GBP</g:price>
 <g:product_type>Immersive Experiences in London &amp; the UK</g:product_type>
 <g:custom_label_0>PXML</g:custom_label_0>
 <g:activity_category>Other</g:activity_category>
@@ -2416,7 +2444,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/e0e62bc9-f277-4591-bf15-87b334316813.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>34.01 GBP</g:price>
+<g:price>29.00 GBP</g:price>
 <g:product_type>London &amp; UK Food Tours</g:product_type>
 <g:custom_label_0>YFCC</g:custom_label_0>
 <g:activity_category>Tour</g:activity_category>
@@ -3971,7 +3999,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/ea59f574-f45e-46b5-8dbb-eb3be9c404da.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>329.00 GBP</g:price>
+<g:price>104.75 GBP</g:price>
 <g:product_type>Private Tours in London &amp; the UK</g:product_type>
 <g:custom_label_0>PWT1</g:custom_label_0>
 <g:activity_category>Tour</g:activity_category>
@@ -4013,7 +4041,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/94e97e17-f932-4a87-a941-6c0cc991d742.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>71.00 GBP</g:price>
+<g:price>83.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>ATC</g:custom_label_0>
 <g:activity_category>Other</g:activity_category>
@@ -4041,7 +4069,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/1056c379-9549-46e1-8cda-7699d6765d4e.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>49.01 GBP</g:price>
+<g:price>46.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>SC1</g:custom_label_0>
 <g:activity_category>Other</g:activity_category>
@@ -4083,7 +4111,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/83b3a1f6-e2f5-4909-822a-6d46cb9ad2a1.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>62.01 GBP</g:price>
+<g:price>75.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>LC1</g:custom_label_0>
 <g:activity_category>Other</g:activity_category>
@@ -4181,7 +4209,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/5689ce9f-d04f-4426-bbba-9c56ce2aab1f.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>65.00 GBP</g:price>
+<g:price>123.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>38</g:custom_label_0>
 <g:activity_category>Other</g:activity_category>
@@ -4252,7 +4280,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/thames-cruises.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>71.00 GBP</g:price>
+<g:price>83.00 GBP</g:price>
 <g:product_type>Thames Cruises</g:product_type>
 <g:custom_label_0>thames-cruises</g:custom_label_0>
 <g:activity_category>Tour</g:activity_category>
