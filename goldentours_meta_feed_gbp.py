@@ -117,6 +117,10 @@ ACTIVITY_RE2 = re.compile(r"Activity code[:\s]+([A-Z0-9]{2,})", re.I)
 VENTRATA_PID_RE = re.compile(
     r'"productID"\s*:\s*"([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"',
     re.I)
+# Product gallery images on the page: /siteimg/products/<id>.jpg
+GALLERY_IMG_RE = re.compile(r"/siteimg/products/(\d+)\.jpg", re.I)
+# How many extra images (beyond the main) to include in the feed.
+EXTRA_IMAGE_COUNT = 2
 
 
 def get(url, session, cookies):
@@ -359,6 +363,19 @@ def parse_product(url, raw):
     description = meta_tag(soup, name="description") or meta_tag(soup, prop="og:description")
     canonical = meta_tag(soup, prop="og:url") or url
 
+    # Gallery images for 2nd/3rd feed images: collect the product's siteimg ids in
+    # page order, drop the main (og:image) one, keep the next EXTRA_IMAGE_COUNT.
+    main_m = GALLERY_IMG_RE.search(image or "")
+    main_id = main_m.group(1) if main_m else None
+    extra_srcs, seen_gid = [], set()
+    for m in GALLERY_IMG_RE.finditer(raw):
+        gid = m.group(1)
+        if gid == main_id or gid in seen_gid:
+            continue
+        seen_gid.add(gid)
+        extra_srcs.append(f"{BASE}/siteimg/products/{gid}.jpg")
+    extra_srcs = extra_srcs[:EXTRA_IMAGE_COUNT]
+
     text = soup.get_text(" ", strip=True)
 
     # Price: prefer the structured JSON-LD offer (authoritative, Meta-matching);
@@ -405,6 +422,7 @@ def parse_product(url, raw):
         "from_price": from_price, "was_price": was_price,
         "product_type": product_type, "custom_label_0": legacy_id,
         "activity_category": act_category, "activity_sub_categories": act_sub,
+        "extra_image_srcs": extra_srcs,
     }
 
 
@@ -500,24 +518,40 @@ def process_images(items, session, cookies, out_dir, image_base):
         return
     img_dir = os.path.join(out_dir, "images")
     os.makedirs(img_dir, exist_ok=True)
-    ok = 0
+
+    def crop_to(src_url, out_name):
+        r = session.get(src_url, headers=HEADERS, cookies=cookies, timeout=30)
+        r.raise_for_status()
+        with open(os.path.join(img_dir, out_name), "wb") as f:
+            f.write(square_crop(r.content))
+        return f"{image_base.rstrip('/')}/{out_name}"
+
+    ok = extra_ok = 0
     for i, p in enumerate(items, 1):
         src = p.get("image_link")
         if not src:
             continue
         safe = re.sub(r"[^A-Za-z0-9_-]", "_", p["id"])[:100]
         try:
-            r = session.get(src, headers=HEADERS, cookies=cookies, timeout=30)
-            r.raise_for_status()
-            with open(os.path.join(img_dir, f"{safe}.jpg"), "wb") as f:
-                f.write(square_crop(r.content))
-            p["image_link"] = f"{image_base.rstrip('/')}/{safe}.jpg"
+            p["image_link"] = crop_to(src, f"{safe}.jpg")
             ok += 1
         except Exception as e:
             print(f"[img {i}/{len(items)}] ERR {p['id']}  {e}; keeping original",
                   file=sys.stderr)
+        # 2nd/3rd images
+        extras = []
+        for n, esrc in enumerate(p.get("extra_image_srcs") or [], start=2):
+            try:
+                extras.append(crop_to(esrc, f"{safe}_{n}.jpg"))
+                extra_ok += 1
+            except Exception as e:
+                print(f"[img {i}/{len(items)}] extra {n} ERR {p['id']}  {e}",
+                      file=sys.stderr)
+            time.sleep(0.15)
+        p["additional_image_link"] = ",".join(extras)
+        p["image_urls"] = extras  # positional: [2nd, 3rd]
         time.sleep(0.2)
-    print(f"Square-cropped {ok}/{len(items)} images "
+    print(f"Square-cropped {ok}/{len(items)} main + {extra_ok} extra images "
           f"({SQUARE_SIZE}x{SQUARE_SIZE}) -> {img_dir}", file=sys.stderr)
 
 
@@ -525,19 +559,25 @@ def write_csv(items, currency, path):
     # No 'condition' field: these are bookable services (tours/experiences), not
     # physical goods, so new/used/refurbished doesn't apply.
     cols = ["id", "title", "description", "availability", "price", "sale_price",
-            "link", "image_link", "brand", "product_type", "custom_label_0",
+            "link", "image_link", "additional_image_link", "image[1].url",
+            "image[2].url", "brand", "product_type", "custom_label_0",
             "activity_category", "activity_sub_categories"]
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
         for p in items:
             price, sale_price = price_fields(p, currency)
+            extras = p.get("image_urls") or []
             w.writerow({
                 "id": p["id"], "title": p["title"],
                 "description": (p["description"] or "").replace("\n", " "),
                 "availability": "in stock",
                 "price": price, "sale_price": sale_price, "link": p["link"],
-                "image_link": p["image_link"], "brand": BRAND,
+                "image_link": p["image_link"],
+                "additional_image_link": p.get("additional_image_link", ""),
+                "image[1].url": extras[0] if len(extras) > 0 else "",
+                "image[2].url": extras[1] if len(extras) > 1 else "",
+                "brand": BRAND,
                 "product_type": p["product_type"],
                 "custom_label_0": p.get("custom_label_0", ""),
                 "activity_category": p.get("activity_category", ""),
@@ -558,8 +598,10 @@ def write_xml(items, currency, path):
                 f"<g:title>{esc(p['title'])}</g:title>",
                 f"<g:description>{esc(p['description'])}</g:description>",
                 f"<g:link>{esc(p['link'])}</g:link>",
-                f"<g:image_link>{esc(p['image_link'])}</g:image_link>",
-                "<g:availability>in stock</g:availability>",
+                f"<g:image_link>{esc(p['image_link'])}</g:image_link>"]
+        for extra in (p.get("image_urls") or []):
+            out += [f"<g:additional_image_link>{esc(extra)}</g:additional_image_link>"]
+        out += ["<g:availability>in stock</g:availability>",
                 f"<g:brand>{BRAND}</g:brand>",
                 f"<g:price>{price}</g:price>"]
         if sale_price:
