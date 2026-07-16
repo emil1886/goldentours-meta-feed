@@ -38,6 +38,14 @@ breadcrumbs joined with ` > `). It populates three fields:
 The `activity_*` fields are only used if the Meta catalogue is the **Activity**
 type; on a standard products catalogue they're ignored and `product_type` applies.
 
+## Custom labels
+
+- **`custom_label_0`** — the activity code (kept for reference after the id was
+  re-keyed to the Ventrata UUID).
+- **`custom_label_1`** — the activity **duration**, read from the product's spec
+  block (e.g. "Approx. 12 hours", "Approx. 90 minutes", "Valid for 90 days").
+  Left blank where the page lists no duration (e.g. some transfers/tickets).
+
 ## Images (square)
 
 The site's product images are small landscape (~728×485), which look poor in the

@@ -117,6 +117,11 @@ ACTIVITY_RE2 = re.compile(r"Activity code[:\s]+([A-Z0-9]{2,})", re.I)
 VENTRATA_PID_RE = re.compile(
     r'"productID"\s*:\s*"([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"',
     re.I)
+# The main product's duration, from its spec/USP block:
+#   <div class="usp-text"><strong>Duration</strong><span>Approx. 90 minutes</span></div>
+DURATION_RE = re.compile(
+    r'<div class="usp-text">\s*<strong>\s*Duration\s*</strong>\s*<span>(.*?)</span>',
+    re.I | re.S)
 # Product gallery images on the page: /siteimg/products/<id>.jpg
 GALLERY_IMG_RE = re.compile(r"/siteimg/products/(\d+)\.jpg", re.I)
 # How many extra images (beyond the main) to include in the feed.
@@ -415,12 +420,18 @@ def parse_product(url, raw):
     act_category = activity_category(product_type)
     act_sub = product_type
 
+    # Duration (custom_label_1) from the main product's spec block; blank if none.
+    dm = DURATION_RE.search(raw)
+    duration = html.unescape(re.sub(r"<[^>]+>", " ", dm.group(1))) if dm else ""
+    duration = re.sub(r"\s+", " ", duration).strip()[:100]
+
     return {
         "id": pid, "title": title, "description": description,
         "link": canonical, "image_link": image, "symbol": symbol,
         "currency_code": currency_code,
         "from_price": from_price, "was_price": was_price,
         "product_type": product_type, "custom_label_0": legacy_id,
+        "custom_label_1": duration,
         "activity_category": act_category, "activity_sub_categories": act_sub,
         "extra_image_srcs": extra_srcs,
     }
@@ -561,7 +572,7 @@ def write_csv(items, currency, path):
     cols = ["id", "title", "description", "availability", "price", "sale_price",
             "link", "image_link", "additional_image_link", "image[1].url",
             "image[2].url", "brand", "product_type", "custom_label_0",
-            "activity_category", "activity_sub_categories"]
+            "custom_label_1", "activity_category", "activity_sub_categories"]
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
@@ -580,6 +591,7 @@ def write_csv(items, currency, path):
                 "brand": BRAND,
                 "product_type": p["product_type"],
                 "custom_label_0": p.get("custom_label_0", ""),
+                "custom_label_1": p.get("custom_label_1", ""),
                 "activity_category": p.get("activity_category", ""),
                 "activity_sub_categories": p.get("activity_sub_categories", ""),
             })
@@ -609,6 +621,8 @@ def write_xml(items, currency, path):
         out += [f"<g:product_type>{esc(p['product_type'])}</g:product_type>"]
         if p.get("custom_label_0"):
             out += [f"<g:custom_label_0>{esc(p['custom_label_0'])}</g:custom_label_0>"]
+        if p.get("custom_label_1"):
+            out += [f"<g:custom_label_1>{esc(p['custom_label_1'])}</g:custom_label_1>"]
         if p.get("activity_category"):
             out += [f"<g:activity_category>{esc(p['activity_category'])}</g:activity_category>"]
         if p.get("activity_sub_categories"):
