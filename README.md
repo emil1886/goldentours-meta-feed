@@ -51,9 +51,9 @@ type; on a standard products catalogue they're ignored and `product_type` applie
 The site's product images are small landscape (~728×485), which look poor in the
 feed. The pipeline centre-crops each to a **square** and upscales to **1080×1080**,
 serves them from `docs/images/` on Pages, and points `image_link` there. It also
-publishes the **2nd and 3rd gallery images** per product (`{id}_2.jpg`,
-`{id}_3.jpg`), exposed as `additional_image_link` (comma-separated, standard
-catalogue) and `image[1].url` / `image[2].url` (Activity catalogue). Images are
+publishes up to **3 additional gallery images** per product (`{id}_2.jpg` …
+`{id}_4.jpg`), exposed as `additional_image_link` (comma-separated, standard
+catalogue) and `image[1].url` … `image[3].url` (Activity catalogue). Images are
 regenerated and deployed with the Pages artifact on every run (not committed to
 git, to keep the repo lean). A sharper result would require higher-resolution
 source images from Golden Tours.

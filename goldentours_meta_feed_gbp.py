@@ -125,7 +125,7 @@ DURATION_RE = re.compile(
 # Product gallery images on the page: /siteimg/products/<id>.jpg
 GALLERY_IMG_RE = re.compile(r"/siteimg/products/(\d+)\.jpg", re.I)
 # How many extra images (beyond the main) to include in the feed.
-EXTRA_IMAGE_COUNT = 2
+EXTRA_IMAGE_COUNT = 3
 
 
 def get(url, session, cookies):
@@ -571,8 +571,9 @@ def write_csv(items, currency, path):
     # physical goods, so new/used/refurbished doesn't apply.
     cols = ["id", "title", "description", "availability", "price", "sale_price",
             "link", "image_link", "additional_image_link", "image[1].url",
-            "image[2].url", "brand", "product_type", "custom_label_0",
-            "custom_label_1", "activity_category", "activity_sub_categories"]
+            "image[2].url", "image[3].url", "brand", "product_type",
+            "custom_label_0", "custom_label_1", "activity_category",
+            "activity_sub_categories"]
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
@@ -588,6 +589,7 @@ def write_csv(items, currency, path):
                 "additional_image_link": p.get("additional_image_link", ""),
                 "image[1].url": extras[0] if len(extras) > 0 else "",
                 "image[2].url": extras[1] if len(extras) > 1 else "",
+                "image[3].url": extras[2] if len(extras) > 2 else "",
                 "brand": BRAND,
                 "product_type": p["product_type"],
                 "custom_label_0": p.get("custom_label_0", ""),
