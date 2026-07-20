@@ -576,8 +576,11 @@ def write_csv(items, currency, path):
     cols = ["id", "title", "description", "availability", "price", "sale_price",
             "link", "image_link", "additional_image_link", "image[1].url",
             "image[2].url", "image[3].url", "brand", "product_type",
-            "custom_label_0", "custom_label_1", "custom_label_2",
-            "activity_category", "activity_sub_categories"]
+            # NB: keep this order stable. New columns are APPENDED at the end so
+            # an existing Meta data-source field mapping isn't shifted/invalidated
+            # (inserting a column mid-schema broke activity_sub_categories once).
+            "custom_label_0", "custom_label_1", "activity_category",
+            "activity_sub_categories", "custom_label_2"]
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
