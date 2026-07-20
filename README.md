@@ -45,6 +45,10 @@ type; on a standard products catalogue they're ignored and `product_type` applie
 - **`custom_label_1`** — the activity **duration**, read from the product's spec
   block (e.g. "Approx. 12 hours", "Approx. 90 minutes", "Valid for 90 days").
   Left blank where the page lists no duration (e.g. some transfers/tickets).
+- **`custom_label_2`** — the site **category** (same value as `product_type`).
+  Mirrored here because custom labels are supported on *every* catalogue type and
+  are selectable in product sets / ad rules, whereas `activity_sub_categories`
+  only applies to Activity catalogues.
 
 ## Images (square)
 

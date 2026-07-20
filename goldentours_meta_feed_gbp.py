@@ -432,6 +432,10 @@ def parse_product(url, raw):
         "from_price": from_price, "was_price": was_price,
         "product_type": product_type, "custom_label_0": legacy_id,
         "custom_label_1": duration,
+        # Category mirrored into a custom label: custom labels are supported on
+        # every catalogue type and are selectable in product sets / ad rules,
+        # whereas activity_sub_categories only applies to Activity catalogues.
+        "custom_label_2": product_type,
         "activity_category": act_category, "activity_sub_categories": act_sub,
         "extra_image_srcs": extra_srcs,
     }
@@ -572,8 +576,8 @@ def write_csv(items, currency, path):
     cols = ["id", "title", "description", "availability", "price", "sale_price",
             "link", "image_link", "additional_image_link", "image[1].url",
             "image[2].url", "image[3].url", "brand", "product_type",
-            "custom_label_0", "custom_label_1", "activity_category",
-            "activity_sub_categories"]
+            "custom_label_0", "custom_label_1", "custom_label_2",
+            "activity_category", "activity_sub_categories"]
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
@@ -594,6 +598,7 @@ def write_csv(items, currency, path):
                 "product_type": p["product_type"],
                 "custom_label_0": p.get("custom_label_0", ""),
                 "custom_label_1": p.get("custom_label_1", ""),
+                "custom_label_2": p.get("custom_label_2", ""),
                 "activity_category": p.get("activity_category", ""),
                 "activity_sub_categories": p.get("activity_sub_categories", ""),
             })
@@ -625,6 +630,8 @@ def write_xml(items, currency, path):
             out += [f"<g:custom_label_0>{esc(p['custom_label_0'])}</g:custom_label_0>"]
         if p.get("custom_label_1"):
             out += [f"<g:custom_label_1>{esc(p['custom_label_1'])}</g:custom_label_1>"]
+        if p.get("custom_label_2"):
+            out += [f"<g:custom_label_2>{esc(p['custom_label_2'])}</g:custom_label_2>"]
         if p.get("activity_category"):
             out += [f"<g:activity_category>{esc(p['activity_category'])}</g:activity_category>"]
         if p.get("activity_sub_categories"):
