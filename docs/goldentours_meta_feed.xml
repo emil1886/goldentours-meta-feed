@@ -225,7 +225,6 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/e9caba06-8d16-4ad2-a55e-824c078d8f02.jpg</g:image_link>
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/e9caba06-8d16-4ad2-a55e-824c078d8f02_2.jpg</g:additional_image_link>
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/e9caba06-8d16-4ad2-a55e-824c078d8f02_3.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/e9caba06-8d16-4ad2-a55e-824c078d8f02_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>41.00 GBP</g:price>
@@ -1320,6 +1319,24 @@
 <g:activity_sub_categories>Festive Period - Christmas 2026</g:activity_sub_categories>
 </item>
 <item>
+<g:id>71b325df-b294-43fb-a3cb-218ebc8e2fe2</g:id>
+<g:title>New Year’s Eve Cruise on the Avontuur</g:title>
+<g:description>New Year’s Eve cruise on the Thames, sensational views of the New Year’s Eve fireworks, DJ throughout the night.</g:description>
+<g:link>https://www.goldentours.com/festive-period-christmas/new-years-eve-cruise-on-the-avontuur</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/71b325df-b294-43fb-a3cb-218ebc8e2fe2.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/71b325df-b294-43fb-a3cb-218ebc8e2fe2_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/71b325df-b294-43fb-a3cb-218ebc8e2fe2_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/71b325df-b294-43fb-a3cb-218ebc8e2fe2_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>369.00 GBP</g:price>
+<g:product_type>Festive Period - Christmas 2026</g:product_type>
+<g:custom_label_0>NYEAV</g:custom_label_0>
+<g:custom_label_2>Festive Period - Christmas 2026</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Festive Period - Christmas 2026</g:activity_sub_categories>
+</item>
+<item>
 <g:id>62d1cbff-6a4b-4c01-a5b7-18bf5de462fc</g:id>
 <g:title>Traditional Christmas Lunch in the Countryside</g:title>
 <g:description>See Oxford, Stratford-upon-Avon, the Scenic Cotswolds, Shakespeare's Birthplace &amp; Anne Hathaway's Cottage and Traditional Christmas Lunch.</g:description>
@@ -1528,6 +1545,24 @@
 <g:activity_sub_categories>Fun things to do in London and the UK</g:activity_sub_categories>
 </item>
 <item>
+<g:id>019f848f-69c8-7757-ad4c-89b47aca1075</g:id>
+<g:title>Activate at The O2 Game Experience</g:title>
+<g:description>Enter London's first active gaming experience! Enjoy fun and games at Activate O2 in London, with family or friends!</g:description>
+<g:link>https://www.goldentours.com/fun-things-to-do-in-london/activate-at-the-o2-game-experience</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/019f848f-69c8-7757-ad4c-89b47aca1075.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/019f848f-69c8-7757-ad4c-89b47aca1075_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/019f848f-69c8-7757-ad4c-89b47aca1075_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/019f848f-69c8-7757-ad4c-89b47aca1075_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>29.95 GBP</g:price>
+<g:product_type>Fun things to do in London and the UK</g:product_type>
+<g:custom_label_0>AO2</g:custom_label_0>
+<g:custom_label_2>Fun things to do in London and the UK</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Fun things to do in London and the UK</g:activity_sub_categories>
+</item>
+<item>
 <g:id>fac55af2-ff35-467f-b015-dab3639ee981</g:id>
 <g:title>Ballie Ballerson Adult Ballpit Experience London</g:title>
 <g:description>Enjoy a night out at a unique cocktail bar with a ball pit fit for adults! Experience a night out at Ballie Ballerson London now!</g:description>
@@ -1538,7 +1573,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/fac55af2-ff35-467f-b015-dab3639ee981_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>8.00 GBP</g:price>
+<g:price>12.00 GBP</g:price>
 <g:product_type>Fun things to do in London and the UK</g:product_type>
 <g:custom_label_0>AGPE</g:custom_label_0>
 <g:custom_label_1>Approx. 3 hours</g:custom_label_1>
@@ -1856,7 +1891,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/56aaabb5-d81a-4c44-9ca2-a78650dbbc25_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>69.50 GBP</g:price>
+<g:price>169.85 GBP</g:price>
 <g:product_type>Immersive Experiences in London &amp; the UK</g:product_type>
 <g:custom_label_0>58STRT</g:custom_label_0>
 <g:custom_label_1>Approx. 3.5 hours</g:custom_label_1>
@@ -1878,6 +1913,24 @@
 <g:price>8.00 GBP</g:price>
 <g:product_type>Immersive Experiences in London &amp; the UK</g:product_type>
 <g:custom_label_0>ATO</g:custom_label_0>
+<g:custom_label_2>Immersive Experiences in London &amp; the UK</g:custom_label_2>
+<g:activity_category>Other</g:activity_category>
+<g:activity_sub_categories>Immersive Experiences in London &amp; the UK</g:activity_sub_categories>
+</item>
+<item>
+<g:id>c96fbbda-121d-4470-98fa-73e09f27d171</g:id>
+<g:title>Chelsea Winter Illuminations</g:title>
+<g:description>Enjoy a stunning Christmas in Chelsea! See a beautiful winter wonderland pop-up &amp; Christmas market, only at the Royal Hospital in Chelsea!</g:description>
+<g:link>https://www.goldentours.com/immersive-experiences/christmas-in-chelsea-royal-hospital-chelsea</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/c96fbbda-121d-4470-98fa-73e09f27d171.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/c96fbbda-121d-4470-98fa-73e09f27d171_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/c96fbbda-121d-4470-98fa-73e09f27d171_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/c96fbbda-121d-4470-98fa-73e09f27d171_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>27.50 GBP</g:price>
+<g:product_type>Immersive Experiences in London &amp; the UK</g:product_type>
+<g:custom_label_0>CCRHC</g:custom_label_0>
 <g:custom_label_2>Immersive Experiences in London &amp; the UK</g:custom_label_2>
 <g:activity_category>Other</g:activity_category>
 <g:activity_sub_categories>Immersive Experiences in London &amp; the UK</g:activity_sub_categories>
@@ -2493,7 +2546,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/1760f249-5462-4a52-9d7a-476d9e9c9815_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>22.00 GBP</g:price>
+<g:price>18.00 GBP</g:price>
 <g:product_type>London Attraction Tickets</g:product_type>
 <g:custom_label_0>CS</g:custom_label_0>
 <g:custom_label_1>Approx. 1-2 hours</g:custom_label_1>
@@ -3091,7 +3144,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/99d9abd2-0baf-42e2-9924-2dd1cd7ea5ff_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>29.00 GBP</g:price>
+<g:price>30.00 GBP</g:price>
 <g:product_type>London by Night</g:product_type>
 <g:custom_label_0>208</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
@@ -3389,6 +3442,7 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>35.00 GBP</g:price>
+<g:sale_price>27.65 GBP</g:sale_price>
 <g:product_type>London Hop-On Hop-Off Bus Tours</g:product_type>
 <g:custom_label_0>OTL</g:custom_label_0>
 <g:custom_label_1>Approx. 2 hours</g:custom_label_1>
@@ -3464,7 +3518,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/d3747818-461c-4886-930f-8d9b26e431da_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>38.00 GBP</g:price>
+<g:price>30.00 GBP</g:price>
 <g:product_type>London Sightseeing Tours</g:product_type>
 <g:custom_label_0>GDE</g:custom_label_0>
 <g:custom_label_2>London Sightseeing Tours</g:custom_label_2>
@@ -3653,7 +3707,6 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>259.00 GBP</g:price>
-<g:sale_price>207.20 GBP</g:sale_price>
 <g:product_type>London to Paris Day Tours By Train</g:product_type>
 <g:custom_label_0>805</g:custom_label_0>
 <g:custom_label_1>Approx. 16 hours</g:custom_label_1>
@@ -3673,7 +3726,6 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>189.00 GBP</g:price>
-<g:sale_price>151.20 GBP</g:sale_price>
 <g:product_type>London to Paris Day Tours By Train</g:product_type>
 <g:custom_label_0>801</g:custom_label_0>
 <g:custom_label_1>Approx. 16 hours</g:custom_label_1>
@@ -4651,13 +4703,49 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/5f9a8421-2253-42f7-ac57-a446196a2701_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>24.00 GBP</g:price>
+<g:price>18.00 GBP</g:price>
 <g:product_type>Museums &amp; Exhibitions</g:product_type>
 <g:custom_label_0>ROGA</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
 <g:custom_label_2>Museums &amp; Exhibitions</g:custom_label_2>
 <g:activity_category>Other</g:activity_category>
 <g:activity_sub_categories>Museums &amp; Exhibitions</g:activity_sub_categories>
+</item>
+<item>
+<g:id>fe40b263-31a9-4460-a25c-52d9ec51f5d4</g:id>
+<g:title>New Year’s Eve Cruise on the London Rose Tickets</g:title>
+<g:description>Enjoy a New Year’s Eve cruise on the Thames with sensational views of the New Year’s Eve fireworks.</g:description>
+<g:link>https://www.goldentours.com/new-years-eve-in-london/new-years-eve-cruise-on-the-london-rose</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/fe40b263-31a9-4460-a25c-52d9ec51f5d4.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/fe40b263-31a9-4460-a25c-52d9ec51f5d4_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/fe40b263-31a9-4460-a25c-52d9ec51f5d4_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/fe40b263-31a9-4460-a25c-52d9ec51f5d4_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>369.00 GBP</g:price>
+<g:product_type>New Year's Eve in London</g:product_type>
+<g:custom_label_0>NYELR</g:custom_label_0>
+<g:custom_label_2>New Year's Eve in London</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>New Year's Eve in London</g:activity_sub_categories>
+</item>
+<item>
+<g:id>cd6bc2a8-a6b2-468a-b326-501a451ba4a9</g:id>
+<g:title>NYE Thames Cruise with Fireworks on the Sapele</g:title>
+<g:description>Welcome 2027 in style, New Year's Eve Thames Cruise, Spectacular sights of the fireworks, Live onboard music entertainment, Cash bar available</g:description>
+<g:link>https://www.goldentours.com/new-years-eve-in-london/new-years-eve-thames-cruise-with-fireworks-onboard-the-sapele</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/cd6bc2a8-a6b2-468a-b326-501a451ba4a9.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/cd6bc2a8-a6b2-468a-b326-501a451ba4a9_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/cd6bc2a8-a6b2-468a-b326-501a451ba4a9_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/cd6bc2a8-a6b2-468a-b326-501a451ba4a9_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>389.00 GBP</g:price>
+<g:product_type>New Year's Eve in London</g:product_type>
+<g:custom_label_0>NYED9</g:custom_label_0>
+<g:custom_label_2>New Year's Eve in London</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>New Year's Eve in London</g:activity_sub_categories>
 </item>
 <item>
 <g:id>08556158-7a3b-4f74-80c6-86f12759a1bc</g:id>
@@ -4821,7 +4909,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/49b98f9f-6f87-427e-b38c-00fb2683d105_3.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>25.38 GBP</g:price>
+<g:price>22.23 GBP</g:price>
 <g:product_type>Out of London Attractions</g:product_type>
 <g:custom_label_0>OSH</g:custom_label_0>
 <g:custom_label_1>Approx. 4-5 hours</g:custom_label_1>
@@ -4987,7 +5075,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/e30666af-c67a-4a34-967c-e027eb6e10ab_3.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>21.57 GBP</g:price>
+<g:price>27.83 GBP</g:price>
 <g:product_type>Out of London Attractions</g:product_type>
 <g:custom_label_0>STONE</g:custom_label_0>
 <g:custom_label_1>Approx. 2-3 hours</g:custom_label_1>
@@ -5099,7 +5187,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/6cb1fc68-5d31-4bf4-8615-6b65c0efc3a9_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>14.26 GBP</g:price>
+<g:price>12.69 GBP</g:price>
 <g:product_type>Out of London Attractions</g:product_type>
 <g:custom_label_0>WAT</g:custom_label_0>
 <g:custom_label_1>Approx. 60-90 minutes</g:custom_label_1>
@@ -5195,7 +5283,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/90b47525-5940-4367-8067-00f75093f5fe_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>103.00 GBP</g:price>
+<g:price>168.00 GBP</g:price>
 <g:product_type>Private Tours in London &amp; the UK</g:product_type>
 <g:custom_label_0>TLCJRC</g:custom_label_0>
 <g:custom_label_1>Approx. 3 hours</g:custom_label_1>
@@ -5384,7 +5472,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/94e97e17-f932-4a87-a941-6c0cc991d742_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>83.00 GBP</g:price>
+<g:price>74.01 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>ATC</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
@@ -5420,7 +5508,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/1056c379-9549-46e1-8cda-7699d6765d4e_3.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>56.00 GBP</g:price>
+<g:price>51.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>SC1</g:custom_label_0>
 <g:custom_label_1>Approx. 2 hours</g:custom_label_1>
@@ -5458,7 +5546,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/c33a4608-d627-49ce-aef7-f7405bca9574_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>15.50 GBP</g:price>
+<g:price>19.50 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>LERCO</g:custom_label_0>
 <g:custom_label_1>Approx. 40 minutes</g:custom_label_1>
@@ -5477,7 +5565,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/83b3a1f6-e2f5-4909-822a-6d46cb9ad2a1_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>62.01 GBP</g:price>
+<g:price>47.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>LC1</g:custom_label_0>
 <g:custom_label_1>Approx. 1 hour 45 minutes</g:custom_label_1>
@@ -5532,7 +5620,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/5e9e865e-9f62-48b9-b79a-8990c4422613_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>94.00 GBP</g:price>
+<g:price>119.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>TZDC</g:custom_label_0>
 <g:custom_label_1>Approx. 3 hours</g:custom_label_1>
@@ -5588,7 +5676,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/5689ce9f-d04f-4426-bbba-9c56ce2aab1f_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>65.00 GBP</g:price>
+<g:price>137.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>38</g:custom_label_0>
 <g:custom_label_1>Approx. 3 hours</g:custom_label_1>
@@ -5679,7 +5767,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/thames-cruises.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>83.00 GBP</g:price>
+<g:price>74.01 GBP</g:price>
 <g:product_type>Thames Cruises</g:product_type>
 <g:custom_label_0>thames-cruises</g:custom_label_0>
 <g:custom_label_2>Thames Cruises</g:custom_label_2>
