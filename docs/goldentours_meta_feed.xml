@@ -2639,7 +2639,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/a372d262-26f2-4d7e-aa05-9c2e656312f1_3.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>104.00 GBP</g:price>
+<g:price>191.00 GBP</g:price>
 <g:product_type>London Attraction Tickets</g:product_type>
 <g:custom_label_0>HPWAT</g:custom_label_0>
 <g:custom_label_1>Approx. 4 hours</g:custom_label_1>
@@ -2773,7 +2773,7 @@
 <g:price>50.00 GBP</g:price>
 <g:product_type>London Attraction Tickets</g:product_type>
 <g:custom_label_0>MCTO</g:custom_label_0>
-<g:custom_label_1>Valid for 90 days</g:custom_label_1>
+<g:custom_label_1>Valid for 7 days</g:custom_label_1>
 <g:custom_label_2>London Attraction Tickets</g:custom_label_2>
 <g:activity_category>Other</g:activity_category>
 <g:activity_sub_categories>London Attraction Tickets</g:activity_sub_categories>
@@ -3145,7 +3145,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/99d9abd2-0baf-42e2-9924-2dd1cd7ea5ff_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>29.00 GBP</g:price>
+<g:price>30.00 GBP</g:price>
 <g:product_type>London by Night</g:product_type>
 <g:custom_label_0>208</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
@@ -3443,7 +3443,7 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>35.00 GBP</g:price>
-<g:sale_price>27.65 GBP</g:sale_price>
+<g:sale_price>28.00 GBP</g:sale_price>
 <g:product_type>London Hop-On Hop-Off Bus Tours</g:product_type>
 <g:custom_label_0>OTL</g:custom_label_0>
 <g:custom_label_1>Approx. 2 hours</g:custom_label_1>
@@ -5283,7 +5283,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/90b47525-5940-4367-8067-00f75093f5fe_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>116.00 GBP</g:price>
+<g:price>168.00 GBP</g:price>
 <g:product_type>Private Tours in London &amp; the UK</g:product_type>
 <g:custom_label_0>TLCJRC</g:custom_label_0>
 <g:custom_label_1>Approx. 3 hours</g:custom_label_1>
@@ -5472,7 +5472,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/94e97e17-f932-4a87-a941-6c0cc991d742_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>74.01 GBP</g:price>
+<g:price>79.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>ATC</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
@@ -5508,7 +5508,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/1056c379-9549-46e1-8cda-7699d6765d4e_3.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>46.00 GBP</g:price>
+<g:price>44.01 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>SC1</g:custom_label_0>
 <g:custom_label_1>Approx. 2 hours</g:custom_label_1>
@@ -5676,7 +5676,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/5689ce9f-d04f-4426-bbba-9c56ce2aab1f_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>123.00 GBP</g:price>
+<g:price>114.00 GBP</g:price>
 <g:product_type>River Thames Attractions</g:product_type>
 <g:custom_label_0>38</g:custom_label_0>
 <g:custom_label_1>Approx. 3 hours</g:custom_label_1>
@@ -5767,7 +5767,7 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/thames-cruises.jpg</g:image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>74.01 GBP</g:price>
+<g:price>79.00 GBP</g:price>
 <g:product_type>Thames Cruises</g:product_type>
 <g:custom_label_0>thames-cruises</g:custom_label_0>
 <g:custom_label_2>Thames Cruises</g:custom_label_2>
@@ -6409,6 +6409,24 @@
 <g:custom_label_2>Visit Scotland</g:custom_label_2>
 <g:activity_category>Tour</g:activity_category>
 <g:activity_sub_categories>Visit Scotland</g:activity_sub_categories>
+</item>
+<item>
+<g:id>c0dc52af-75f4-46c8-8785-63f6284fd93d</g:id>
+<g:title>Harry Potter Warner Bros. Studio Tour with Transfer &amp; Return Eurostar from Paris</g:title>
+<g:description>Discover the wizarding world of Harry Potter at the Warner Bros. Studio Tour. Enjoy seamless Eurostar transfers from Paris for a magical day out!</g:description>
+<g:link>https://www.goldentours.com/warner-bros-harry-potter-studio-tour-london/harry-potter-warner-bros-studio-tour-with-transfer-and-return-eurostar-from-paris</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/c0dc52af-75f4-46c8-8785-63f6284fd93d.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/c0dc52af-75f4-46c8-8785-63f6284fd93d_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/c0dc52af-75f4-46c8-8785-63f6284fd93d_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/c0dc52af-75f4-46c8-8785-63f6284fd93d_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>259.00 GBP</g:price>
+<g:product_type>Harry Potter London Tours</g:product_type>
+<g:custom_label_0>851</g:custom_label_0>
+<g:custom_label_2>Harry Potter London Tours</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Harry Potter London Tours</g:activity_sub_categories>
 </item>
 <item>
 <g:id>cb1c51e6-58c4-457a-8928-f89d44c06799</g:id>
