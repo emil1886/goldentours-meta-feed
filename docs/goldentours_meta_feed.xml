@@ -2661,17 +2661,17 @@
 <g:activity_sub_categories>London Attraction Tickets</g:activity_sub_categories>
 </item>
 <item>
-<g:id>HDH</g:id>
+<g:id>41ec3a68-30f7-449f-a8fc-1b77b308c227</g:id>
 <g:title>Hobbledown Heath Adventure Park</g:title>
 <g:description>Enjoy one of the largest indoor play arenas in London – see animals and swing from ropes at Hobbledown Heath Adventure Park!</g:description>
 <g:link>https://www.goldentours.com/london-attraction-tickets/hobbledown-heath</g:link>
-<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH.jpg</g:image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_2.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_3.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_4.jpg</g:additional_image_link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>0.00 GBP</g:price>
+<g:price>16.50 GBP</g:price>
 <g:product_type>London Attraction Tickets</g:product_type>
 <g:custom_label_0>HDH</g:custom_label_0>
 <g:custom_label_2>London Attraction Tickets</g:custom_label_2>
@@ -3494,7 +3494,6 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>35.00 GBP</g:price>
-<g:sale_price>28.00 GBP</g:sale_price>
 <g:product_type>London Hop-On Hop-Off Bus Tours</g:product_type>
 <g:custom_label_0>OTL</g:custom_label_0>
 <g:custom_label_1>Approx. 2 hours</g:custom_label_1>
@@ -4306,6 +4305,24 @@
 <g:product_type>Walking Tours</g:product_type>
 <g:custom_label_0>WT2</g:custom_label_0>
 <g:custom_label_1>Approx. 2-2.5 hours</g:custom_label_1>
+<g:custom_label_2>Walking Tours</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Walking Tours</g:activity_sub_categories>
+</item>
+<item>
+<g:id>01a0ae2d-ef68-7b7d-bd78-1342cbd73217</g:id>
+<g:title>The King’s Gallery with Royal Walking Tour</g:title>
+<g:description>Take a visit to the King's Gallery and see the royal collection, along with a 90-minute Royal Walking Tour!</g:description>
+<g:link>https://www.goldentours.com/london-walking-tours/the-kings-gallery-with-royal-walking-tour</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0ae2d-ef68-7b7d-bd78-1342cbd73217.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0ae2d-ef68-7b7d-bd78-1342cbd73217_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0ae2d-ef68-7b7d-bd78-1342cbd73217_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0ae2d-ef68-7b7d-bd78-1342cbd73217_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>35.00 GBP</g:price>
+<g:product_type>Walking Tours</g:product_type>
+<g:custom_label_0>KGWT</g:custom_label_0>
 <g:custom_label_2>Walking Tours</g:custom_label_2>
 <g:activity_category>Tour</g:activity_category>
 <g:activity_sub_categories>Walking Tours</g:activity_sub_categories>
@@ -6460,24 +6477,6 @@
 <g:custom_label_2>Visit Scotland</g:custom_label_2>
 <g:activity_category>Tour</g:activity_category>
 <g:activity_sub_categories>Visit Scotland</g:activity_sub_categories>
-</item>
-<item>
-<g:id>01a0c7e1-a231-7d06-99e1-586669aab15b</g:id>
-<g:title>Harry Potter Warner Bros. Studio Tour London with Flexible Return Transport</g:title>
-<g:description>Get tickets to the Warner Bros. Studio Tour, now with a flexible return, allowing you to return from the studio whenever you wish!</g:description>
-<g:link>https://www.goldentours.com/warner-bros-harry-potter-studio-tour-london/harry-potter-warner-bros-studio-tour-london-with-flexible-return-transport</g:link>
-<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0c7e1-a231-7d06-99e1-586669aab15b.jpg</g:image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0c7e1-a231-7d06-99e1-586669aab15b_2.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0c7e1-a231-7d06-99e1-586669aab15b_3.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0c7e1-a231-7d06-99e1-586669aab15b_4.jpg</g:additional_image_link>
-<g:availability>in stock</g:availability>
-<g:brand>Golden Tours</g:brand>
-<g:price>145.00 GBP</g:price>
-<g:product_type>Harry Potter London Tours</g:product_type>
-<g:custom_label_0>WBWF</g:custom_label_0>
-<g:custom_label_2>Harry Potter London Tours</g:custom_label_2>
-<g:activity_category>Tour</g:activity_category>
-<g:activity_sub_categories>Harry Potter London Tours</g:activity_sub_categories>
 </item>
 <item>
 <g:id>c0dc52af-75f4-46c8-8785-63f6284fd93d</g:id>
