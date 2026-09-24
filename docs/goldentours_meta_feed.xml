@@ -777,7 +777,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/c88af04c-ff08-42af-a393-69fb06a24f4b_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>169.00 GBP</g:price>
+<g:price>175.00 GBP</g:price>
 <g:product_type>Christmas Day in London and the UK</g:product_type>
 <g:custom_label_0>37C</g:custom_label_0>
 <g:custom_label_1>Approx. 3 hours 30 minutes</g:custom_label_1>
@@ -3213,7 +3213,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/99d9abd2-0baf-42e2-9924-2dd1cd7ea5ff_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>29.00 GBP</g:price>
+<g:price>30.00 GBP</g:price>
 <g:product_type>London by Night</g:product_type>
 <g:custom_label_0>208</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
@@ -3494,6 +3494,7 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>35.00 GBP</g:price>
+<g:sale_price>28.00 GBP</g:sale_price>
 <g:product_type>London Hop-On Hop-Off Bus Tours</g:product_type>
 <g:custom_label_0>OTL</g:custom_label_0>
 <g:custom_label_1>Approx. 2 hours</g:custom_label_1>
@@ -3513,6 +3514,7 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>39.00 GBP</g:price>
+<g:sale_price>23.40 GBP</g:sale_price>
 <g:product_type>London Hop-On Hop-Off Bus Tours</g:product_type>
 <g:custom_label_0>HH4H</g:custom_label_0>
 <g:custom_label_1>Approx. 4 hours</g:custom_label_1>
@@ -4797,6 +4799,37 @@
 <g:custom_label_2>Museums &amp; Exhibitions</g:custom_label_2>
 <g:activity_category>Other</g:activity_category>
 <g:activity_sub_categories>Museums &amp; Exhibitions</g:activity_sub_categories>
+</item>
+<item>
+<g:id>new-years-eve-cruises</g:id>
+<g:title>London New Year's Eve Thames Cruises - Fireworks and Dinner 2027</g:title>
+<g:description>Get the best views of London's iconic New Year's Eve fireworks right from the Thames on one of our exciting cruise trips and boat parties - you'll be spoilt for choice!</g:description>
+<g:link>https://www.goldentours.com/new-years-eve-cruises</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/new-years-eve-cruises.jpg</g:image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>389.00 GBP</g:price>
+<g:product_type>New Years Eve Cruises</g:product_type>
+<g:custom_label_0>new-years-eve-cruises</g:custom_label_0>
+<g:custom_label_2>New Years Eve Cruises</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>New Years Eve Cruises</g:activity_sub_categories>
+</item>
+<item>
+<g:id>d142d99c-2f02-4460-af5c-ec3c5c0055d6</g:id>
+<g:title>NYE on the Celestial River Thames Cruise</g:title>
+<g:description>Enjoy New Year’s Eve cruising the River Thames with beautiful views of the New Year's Eve fireworks with this wonderful, celebratory package.</g:description>
+<g:link>https://www.goldentours.com/new-years-eve-cruises/new-years-eve-on-the-celestial-cruise</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/d142d99c-2f02-4460-af5c-ec3c5c0055d6.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/d142d99c-2f02-4460-af5c-ec3c5c0055d6_2.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>390.00 GBP</g:price>
+<g:product_type>New Year's Eve Cruises</g:product_type>
+<g:custom_label_0>NYECC</g:custom_label_0>
+<g:custom_label_2>New Year's Eve Cruises</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>New Year's Eve Cruises</g:activity_sub_categories>
 </item>
 <item>
 <g:id>fe40b263-31a9-4460-a25c-52d9ec51f5d4</g:id>
