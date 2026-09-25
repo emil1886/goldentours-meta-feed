@@ -159,25 +159,6 @@
 <g:activity_sub_categories>Afternoon Tea in London and the UK</g:activity_sub_categories>
 </item>
 <item>
-<g:id>bee28123-b648-47be-ad54-ab0230fb1ac5</g:id>
-<g:title>Royal Windsor Afternoon Tea Bus Tour</g:title>
-<g:description>Enjoy a day out on our Afternoon Tea Bus in Windsor – see the city’s stunning sights and enjoy an outstanding afternoon tea service.</g:description>
-<g:link>https://www.goldentours.com/afternoon-tea-in-london/royal-windsor-afternoon-tea-bus-tour</g:link>
-<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/bee28123-b648-47be-ad54-ab0230fb1ac5.jpg</g:image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/bee28123-b648-47be-ad54-ab0230fb1ac5_2.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/bee28123-b648-47be-ad54-ab0230fb1ac5_3.jpg</g:additional_image_link>
-<g:availability>in stock</g:availability>
-<g:brand>Golden Tours</g:brand>
-<g:price>49.00 GBP</g:price>
-<g:sale_price>44.10 GBP</g:sale_price>
-<g:product_type>Afternoon Tea in London and the UK</g:product_type>
-<g:custom_label_0>BVW</g:custom_label_0>
-<g:custom_label_1>Approx. 70-90 minutes</g:custom_label_1>
-<g:custom_label_2>Afternoon Tea in London and the UK</g:custom_label_2>
-<g:activity_category>Tour</g:activity_category>
-<g:activity_sub_categories>Afternoon Tea in London and the UK</g:activity_sub_categories>
-</item>
-<item>
 <g:id>019f88af-2712-7e9c-a2db-b231804b9466</g:id>
 <g:title>Thames River Cruise with Afternoon Tea or Two-Course Dinner</g:title>
 <g:description>Sightsee in the city of London by taking a cruise on the River Thames, with your choice of afternoon tea or a two-course dinner!</g:description>
@@ -1606,7 +1587,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/fac55af2-ff35-467f-b015-dab3639ee981_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>8.00 GBP</g:price>
+<g:price>12.00 GBP</g:price>
 <g:product_type>Fun things to do in London and the UK</g:product_type>
 <g:custom_label_0>AGPE</g:custom_label_0>
 <g:custom_label_1>Approx. 3 hours</g:custom_label_1>
@@ -1928,24 +1909,6 @@
 <g:product_type>Immersive Experiences in London &amp; the UK</g:product_type>
 <g:custom_label_0>58STRT</g:custom_label_0>
 <g:custom_label_1>Approx. 3.5 hours</g:custom_label_1>
-<g:custom_label_2>Immersive Experiences in London &amp; the UK</g:custom_label_2>
-<g:activity_category>Other</g:activity_category>
-<g:activity_sub_categories>Immersive Experiences in London &amp; the UK</g:activity_sub_categories>
-</item>
-<item>
-<g:id>16d81f44-89a3-4c46-8efd-f47cc8fa87ad</g:id>
-<g:title>Astronomers Take Over</g:title>
-<g:description>Experience the universe like never before at Astronomers Take Over! Engage with real astronomers and enjoy hands-on activities at the National Maritime Museum.</g:description>
-<g:link>https://www.goldentours.com/immersive-experiences/astronomers-take-over</g:link>
-<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/16d81f44-89a3-4c46-8efd-f47cc8fa87ad.jpg</g:image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/16d81f44-89a3-4c46-8efd-f47cc8fa87ad_2.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/16d81f44-89a3-4c46-8efd-f47cc8fa87ad_3.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/16d81f44-89a3-4c46-8efd-f47cc8fa87ad_4.jpg</g:additional_image_link>
-<g:availability>in stock</g:availability>
-<g:brand>Golden Tours</g:brand>
-<g:price>8.00 GBP</g:price>
-<g:product_type>Immersive Experiences in London &amp; the UK</g:product_type>
-<g:custom_label_0>ATO</g:custom_label_0>
 <g:custom_label_2>Immersive Experiences in London &amp; the UK</g:custom_label_2>
 <g:activity_category>Other</g:activity_category>
 <g:activity_sub_categories>Immersive Experiences in London &amp; the UK</g:activity_sub_categories>
@@ -4003,7 +3966,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/e7fcabde-1629-42bc-9504-1c1830f2461c_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>25.00 GBP</g:price>
+<g:price>65.00 GBP</g:price>
 <g:product_type>Walking Tours</g:product_type>
 <g:custom_label_0>DAWL</g:custom_label_0>
 <g:custom_label_1>Approx. 2.5 hours</g:custom_label_1>
@@ -4799,6 +4762,40 @@
 <g:custom_label_2>Museums &amp; Exhibitions</g:custom_label_2>
 <g:activity_category>Other</g:activity_category>
 <g:activity_sub_categories>Museums &amp; Exhibitions</g:activity_sub_categories>
+</item>
+<item>
+<g:id>1ada654a-1c6d-487c-99d9-8fb3ee2d0b7b</g:id>
+<g:title>New Year’s Eve Dinner and Dance with City Cruises</g:title>
+<g:description>Celebrate the arrival of 2025 with a wonderful New Year’s Eve cruise on the Thames. Board the River Liner and enjoy a welcome glass of sparkling wine.</g:description>
+<g:link>https://www.goldentours.com/new-years-eve-cruises/new-years-eve-dinner-cruise</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/1ada654a-1c6d-487c-99d9-8fb3ee2d0b7b.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/1ada654a-1c6d-487c-99d9-8fb3ee2d0b7b_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/1ada654a-1c6d-487c-99d9-8fb3ee2d0b7b_3.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>499.00 GBP</g:price>
+<g:product_type>New Year's Eve Cruises</g:product_type>
+<g:custom_label_0>NYE5</g:custom_label_0>
+<g:custom_label_2>New Year's Eve Cruises</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>New Year's Eve Cruises</g:activity_sub_categories>
+</item>
+<item>
+<g:id>5495b080-3ea3-4761-802c-4081c94fd3d4</g:id>
+<g:title>New Year’s Eve City Cruises' Dinner</g:title>
+<g:description>Board your river cruiser for a glamourous evening of live music, dancing and a 3-course dinner. When the clock strikes 12, marvel at the fabulous London Fireworks lighting up the night sky.</g:description>
+<g:link>https://www.goldentours.com/new-years-eve-cruises/new-years-eve-gala-dinner-cruise-with-city-cruises</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/5495b080-3ea3-4761-802c-4081c94fd3d4.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/5495b080-3ea3-4761-802c-4081c94fd3d4_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/5495b080-3ea3-4761-802c-4081c94fd3d4_3.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>555.00 GBP</g:price>
+<g:product_type>New Year's Eve Cruises</g:product_type>
+<g:custom_label_0>NYE6</g:custom_label_0>
+<g:custom_label_2>New Year's Eve Cruises</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>New Year's Eve Cruises</g:activity_sub_categories>
 </item>
 <item>
 <g:id>new-years-eve-cruises</g:id>
