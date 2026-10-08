@@ -1276,6 +1276,42 @@
 <g:activity_sub_categories>Festive Period - Christmas 2026</g:activity_sub_categories>
 </item>
 <item>
+<g:id>CLHC</g:id>
+<g:title>Singalong Christmas Lights Tour with Festive Hot Chocolate</g:title>
+<g:description>Enjoy a singalong Christmas lights tour in London! See the stunning lights on an open-top bus and enjoy a festive hot chocolate!</g:description>
+<g:link>https://www.goldentours.com/festive-period-christmas/singalong-christmas-lights-tour-with-festive-hot-chocolate</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/CLHC.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/CLHC_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/CLHC_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/CLHC_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>0.00 GBP</g:price>
+<g:product_type>Festive Period - Christmas 2026</g:product_type>
+<g:custom_label_0>CLHC</g:custom_label_0>
+<g:custom_label_2>Festive Period - Christmas 2026</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Festive Period - Christmas 2026</g:activity_sub_categories>
+</item>
+<item>
+<g:id>CLFP</g:id>
+<g:title>Singalong Christmas Lights Tour with Festive Prosecco</g:title>
+<g:description>Enjoy a singalong Christmas lights tour in London! See the stunning lights on an open-top bus and enjoy a glass of prosecco!</g:description>
+<g:link>https://www.goldentours.com/festive-period-christmas/singalong-christmas-lights-tour-with-festive-prosecco</g:link>
+<g:image_link>https://www.goldentours.com/siteimg/products/907348.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/CLFP_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/CLFP_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/CLFP_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>0.00 GBP</g:price>
+<g:product_type>Festive Period - Christmas 2026</g:product_type>
+<g:custom_label_0>CLFP</g:custom_label_0>
+<g:custom_label_2>Festive Period - Christmas 2026</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Festive Period - Christmas 2026</g:activity_sub_categories>
+</item>
+<item>
 <g:id>fade413c-2bcd-4d76-a6ec-6a2542e589bb</g:id>
 <g:title>Singalong Christmas Lights Tour Tickets</g:title>
 <g:description>See London’s stunning Christmas lights in the perfect Christmas experience. Sing along to traditional Christmas songs and enjoy festive drinks and mince pies!</g:description>
@@ -3254,6 +3290,24 @@
 <g:product_type>London &amp; UK Food Tours</g:product_type>
 <g:custom_label_0>IFT</g:custom_label_0>
 <g:custom_label_1>Approx. 3-3.5 hours</g:custom_label_1>
+<g:custom_label_2>London &amp; UK Food Tours</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>London &amp; UK Food Tours</g:activity_sub_categories>
+</item>
+<item>
+<g:id>01a0e7c6-d80d-7454-85c9-38e37e5a0aa0</g:id>
+<g:title>London Traditional English Scone Making and Tea Workshop</g:title>
+<g:description>Enjoy an afternoon making traditional English scones and tea! Absolutely no experience needed, and take 3 scones home for free!</g:description>
+<g:link>https://www.goldentours.com/london-food-tours/london-traditional-english-scone-making-and-tea-workshop</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0e7c6-d80d-7454-85c9-38e37e5a0aa0.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0e7c6-d80d-7454-85c9-38e37e5a0aa0_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0e7c6-d80d-7454-85c9-38e37e5a0aa0_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a0e7c6-d80d-7454-85c9-38e37e5a0aa0_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>35.00 GBP</g:price>
+<g:product_type>London &amp; UK Food Tours</g:product_type>
+<g:custom_label_0>SMTW</g:custom_label_0>
 <g:custom_label_2>London &amp; UK Food Tours</g:custom_label_2>
 <g:activity_category>Tour</g:activity_category>
 <g:activity_sub_categories>London &amp; UK Food Tours</g:activity_sub_categories>
@@ -5508,7 +5562,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/ea59f574-f45e-46b5-8dbb-eb3be9c404da_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>329.00 GBP</g:price>
+<g:price>72.72 GBP</g:price>
 <g:product_type>Private Tours in London &amp; the UK</g:product_type>
 <g:custom_label_0>PWT1</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
