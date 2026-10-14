@@ -1668,6 +1668,24 @@
 <g:activity_sub_categories>Fun things to do in London and the UK</g:activity_sub_categories>
 </item>
 <item>
+<g:id>BGBPS</g:id>
+<g:title>Glide at Battersea Power Station</g:title>
+<g:description>Experience London’s coolest ice rink – visit Battersea and enjoy a skate at Glide at Battersea Power Station!</g:description>
+<g:link>https://www.goldentours.com/fun-things-to-do-in-london/glide-at-battersea-power-station</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/BGBPS.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/BGBPS_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/BGBPS_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/BGBPS_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>0.00 GBP</g:price>
+<g:product_type>Fun things to do in London and the UK</g:product_type>
+<g:custom_label_0>BGBPS</g:custom_label_0>
+<g:custom_label_2>Fun things to do in London and the UK</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Fun things to do in London and the UK</g:activity_sub_categories>
+</item>
+<item>
 <g:id>e19f6a3b-c012-4c48-8db5-b89a1d3a09b8</g:id>
 <g:title>Immersive Cocktail Experience Tickets</g:title>
 <g:description>Try an exciting an authentic moonshine cocktail experience.</g:description>
@@ -2620,17 +2638,17 @@
 <g:activity_sub_categories>London Attraction Tickets</g:activity_sub_categories>
 </item>
 <item>
-<g:id>HDH</g:id>
+<g:id>41ec3a68-30f7-449f-a8fc-1b77b308c227</g:id>
 <g:title>Hobbledown Heath Adventure Park</g:title>
 <g:description>Enjoy one of the largest indoor play arenas in London – see animals and swing from ropes at Hobbledown Heath Adventure Park!</g:description>
 <g:link>https://www.goldentours.com/london-attraction-tickets/hobbledown-heath</g:link>
-<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH.jpg</g:image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_2.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_3.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_4.jpg</g:additional_image_link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>0.00 GBP</g:price>
+<g:price>16.50 GBP</g:price>
 <g:product_type>London Attraction Tickets</g:product_type>
 <g:custom_label_0>HDH</g:custom_label_0>
 <g:custom_label_2>London Attraction Tickets</g:custom_label_2>
@@ -3308,6 +3326,23 @@
 <g:price>35.00 GBP</g:price>
 <g:product_type>London &amp; UK Food Tours</g:product_type>
 <g:custom_label_0>SMTW</g:custom_label_0>
+<g:custom_label_2>London &amp; UK Food Tours</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>London &amp; UK Food Tours</g:activity_sub_categories>
+</item>
+<item>
+<g:id>01a043a4-f2d0-7574-a414-168963ba23ad</g:id>
+<g:title>Lunch Pack</g:title>
+<g:description>Taking a coach tour with Golden Tours? Don't want to fuss about lunch? Add on an additional lunch pack, convenient and delicious!</g:description>
+<g:link>https://www.goldentours.com/london-food-tours/lunch-pack</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a043a4-f2d0-7574-a414-168963ba23ad.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a043a4-f2d0-7574-a414-168963ba23ad_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a043a4-f2d0-7574-a414-168963ba23ad_3.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>12.00 GBP</g:price>
+<g:product_type>London &amp; UK Food Tours</g:product_type>
+<g:custom_label_0>LTP</g:custom_label_0>
 <g:custom_label_2>London &amp; UK Food Tours</g:custom_label_2>
 <g:activity_category>Tour</g:activity_category>
 <g:activity_sub_categories>London &amp; UK Food Tours</g:activity_sub_categories>
@@ -4020,6 +4055,24 @@
 <g:product_type>Walking Tours</g:product_type>
 <g:custom_label_0>HTT</g:custom_label_0>
 <g:custom_label_1>Approx. 1-2 hours</g:custom_label_1>
+<g:custom_label_2>Walking Tours</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Walking Tours</g:activity_sub_categories>
+</item>
+<item>
+<g:id>01a10aeb-420c-79b9-a18f-819d30a83203</g:id>
+<g:title>Hidden Tube Tour London - Clapham South: Ghosts of the Underground</g:title>
+<g:description>Enjoy a Halloween tour from hidden London! Explore the Clapham South underground and enjoy underground legends and ghost stories!</g:description>
+<g:link>https://www.goldentours.com/london-walking-tours/hidden-tube-tour-london-clapham-south-ghosts-of-the-underground</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a10aeb-420c-79b9-a18f-819d30a83203.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a10aeb-420c-79b9-a18f-819d30a83203_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a10aeb-420c-79b9-a18f-819d30a83203_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a10aeb-420c-79b9-a18f-819d30a83203_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>39.00 GBP</g:price>
+<g:product_type>Walking Tours</g:product_type>
+<g:custom_label_0>HTTCG</g:custom_label_0>
 <g:custom_label_2>Walking Tours</g:custom_label_2>
 <g:activity_category>Tour</g:activity_category>
 <g:activity_sub_categories>Walking Tours</g:activity_sub_categories>
@@ -5565,7 +5618,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/ea59f574-f45e-46b5-8dbb-eb3be9c404da_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>89.80 GBP</g:price>
+<g:price>179.50 GBP</g:price>
 <g:product_type>Private Tours in London &amp; the UK</g:product_type>
 <g:custom_label_0>PWT1</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
@@ -5783,7 +5836,7 @@
 <g:title>Hop-on Hop-off London River Cruise Golden Tours London</g:title>
 <g:description>Take a ride on the hop-on hop-off London River Cruise, see the sights that you want to see from a boat on the River Thames.</g:description>
 <g:link>https://www.goldentours.com/river-thames-attractions/thames-river-service</g:link>
-<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/d8c41220-2002-44bc-9734-6c6644bffaf2.jpg</g:image_link>
+<g:image_link>https://www.goldentours.com/siteimg/products/751683.jpg</g:image_link>
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/d8c41220-2002-44bc-9734-6c6644bffaf2_2.jpg</g:additional_image_link>
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/d8c41220-2002-44bc-9734-6c6644bffaf2_3.jpg</g:additional_image_link>
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/d8c41220-2002-44bc-9734-6c6644bffaf2_4.jpg</g:additional_image_link>
@@ -5839,7 +5892,7 @@
 <g:title>Enjoy a Theme Night on the River Thames</g:title>
 <g:description>Enjoy a Thames cruise with a glass of fizz and 3 course meal! But, When there is a murderer on board everyone must turn detective to catch the killer.</g:description>
 <g:link>https://www.goldentours.com/river-thames-attractions/theme-nights-on-the-river-thames</g:link>
-<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/d5dbe851-768e-4fd4-b717-7daf15be4fb2.jpg</g:image_link>
+<g:image_link>https://www.goldentours.com/siteimg/products/748602.jpg</g:image_link>
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/d5dbe851-768e-4fd4-b717-7daf15be4fb2_2.jpg</g:additional_image_link>
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/d5dbe851-768e-4fd4-b717-7daf15be4fb2_3.jpg</g:additional_image_link>
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/d5dbe851-768e-4fd4-b717-7daf15be4fb2_4.jpg</g:additional_image_link>
@@ -6153,7 +6206,6 @@
 <g:description>See stunning views from atop London's most spectacular bridge - book your tickets to see Tower Bridge today!</g:description>
 <g:link>https://www.goldentours.com/uk-historic-attractions/tower-bridge</g:link>
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/4ab45cb0-889f-4fb5-9298-9849851cf33a.jpg</g:image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/4ab45cb0-889f-4fb5-9298-9849851cf33a_2.jpg</g:additional_image_link>
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/4ab45cb0-889f-4fb5-9298-9849851cf33a_3.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
