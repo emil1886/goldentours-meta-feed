@@ -196,25 +196,6 @@
 <g:activity_sub_categories>Afternoon Tea in London and the UK</g:activity_sub_categories>
 </item>
 <item>
-<g:id>e9caba06-8d16-4ad2-a55e-824c078d8f02</g:id>
-<g:title>The Smurfs London Tea Party Adventure</g:title>
-<g:description>Indulge in a whimsical afternoon tea aboard the Smurfs bus, offering an array of sweet treats, savoury delights, refreshing drinks, and music.</g:description>
-<g:link>https://www.goldentours.com/afternoon-tea-in-london/the-smurfs-london-tea-party-adventure</g:link>
-<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/e9caba06-8d16-4ad2-a55e-824c078d8f02.jpg</g:image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/e9caba06-8d16-4ad2-a55e-824c078d8f02_2.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/e9caba06-8d16-4ad2-a55e-824c078d8f02_3.jpg</g:additional_image_link>
-<g:availability>in stock</g:availability>
-<g:brand>Golden Tours</g:brand>
-<g:price>41.00 GBP</g:price>
-<g:sale_price>36.90 GBP</g:sale_price>
-<g:product_type>Afternoon Tea in London and the UK</g:product_type>
-<g:custom_label_0>BVSM</g:custom_label_0>
-<g:custom_label_1>Approx. 65-70 minutes</g:custom_label_1>
-<g:custom_label_2>Afternoon Tea in London and the UK</g:custom_label_2>
-<g:activity_category>Tour</g:activity_category>
-<g:activity_sub_categories>Afternoon Tea in London and the UK</g:activity_sub_categories>
-</item>
-<item>
 <g:id>e3823fe8-0296-403b-87e0-14c7ec6548b7</g:id>
 <g:title>The Snowman Afternoon Tea Bus Tour</g:title>
 <g:description>Enjoy an afternoon tea bus tour themed after The Snowman! Enjoy delicious food and drink along with music to get you in the Christmas mood!</g:description>
@@ -991,6 +972,46 @@
 <g:activity_sub_categories>Tours &amp; Day Trips from London</g:activity_sub_categories>
 </item>
 <item>
+<g:id>01a16256-2e08-7e23-b5fa-43397f4e52ce</g:id>
+<g:title>Simply Cambridge Day Trip from London</g:title>
+<g:description>Enjoy a day trip to Cambridge! Take a bus departing from London and enjoy a full day to tour Cambridge before returning!</g:description>
+<g:link>https://www.goldentours.com/day-trips-from-london/simply-cambridge-day-trip-from-london</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a16256-2e08-7e23-b5fa-43397f4e52ce.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a16256-2e08-7e23-b5fa-43397f4e52ce_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a16256-2e08-7e23-b5fa-43397f4e52ce_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a16256-2e08-7e23-b5fa-43397f4e52ce_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>99.00 GBP</g:price>
+<g:sale_price>84.15 GBP</g:sale_price>
+<g:product_type>Tours &amp; Day Trips from London</g:product_type>
+<g:custom_label_0>63</g:custom_label_0>
+<g:custom_label_1>Approx. 9.5 hours</g:custom_label_1>
+<g:custom_label_2>Tours &amp; Day Trips from London</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Tours &amp; Day Trips from London</g:activity_sub_categories>
+</item>
+<item>
+<g:id>01a16357-0122-734a-af8f-cdf4dd993200</g:id>
+<g:title>Simply Canterbury Day Trip from London</g:title>
+<g:description>Take a trip to Canterbury and enjoy a tour through the city! Leave from London and see Canterbury in a day!</g:description>
+<g:link>https://www.goldentours.com/day-trips-from-london/simply-canterbury-day-trip-from-london</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a16357-0122-734a-af8f-cdf4dd993200.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a16357-0122-734a-af8f-cdf4dd993200_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a16357-0122-734a-af8f-cdf4dd993200_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a16357-0122-734a-af8f-cdf4dd993200_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>99.00 GBP</g:price>
+<g:sale_price>84.15 GBP</g:sale_price>
+<g:product_type>Tours &amp; Day Trips from London</g:product_type>
+<g:custom_label_0>64</g:custom_label_0>
+<g:custom_label_1>Approx. 9 hours</g:custom_label_1>
+<g:custom_label_2>Tours &amp; Day Trips from London</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Tours &amp; Day Trips from London</g:activity_sub_categories>
+</item>
+<item>
 <g:id>74620a0b-b3ae-4608-9722-43619ace85b9</g:id>
 <g:title>Stonehenge Tour</g:title>
 <g:description>London to Stonehenge Morning tour; visit UK's most popular prehistoric monument. Enjoy an extended visit with audio guide &amp; the new visitor centre exhibition.</g:description>
@@ -1581,7 +1602,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/fac55af2-ff35-467f-b015-dab3639ee981_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>8.00 GBP</g:price>
+<g:price>12.00 GBP</g:price>
 <g:product_type>Fun things to do in London and the UK</g:product_type>
 <g:custom_label_0>AGPE</g:custom_label_0>
 <g:custom_label_1>Approx. 3 hours</g:custom_label_1>
@@ -3205,7 +3226,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/99d9abd2-0baf-42e2-9924-2dd1cd7ea5ff_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>29.00 GBP</g:price>
+<g:price>30.00 GBP</g:price>
 <g:product_type>London by Night</g:product_type>
 <g:custom_label_0>208</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
@@ -5669,7 +5690,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/ea59f574-f45e-46b5-8dbb-eb3be9c404da_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>329.00 GBP</g:price>
+<g:price>104.75 GBP</g:price>
 <g:product_type>Private Tours in London &amp; the UK</g:product_type>
 <g:custom_label_0>PWT1</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
