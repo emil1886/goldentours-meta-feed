@@ -664,7 +664,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/3cfbd76a-4f7d-49fa-9caa-616981cd49a5_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>179.10 GBP</g:price>
+<g:price>199.00 GBP</g:price>
 <g:product_type>Christmas Day in London and the UK</g:product_type>
 <g:custom_label_0>228C</g:custom_label_0>
 <g:custom_label_1>Approx. 10 hours</g:custom_label_1>
@@ -1584,7 +1584,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/fac55af2-ff35-467f-b015-dab3639ee981_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>8.00 GBP</g:price>
+<g:price>12.00 GBP</g:price>
 <g:product_type>Fun things to do in London and the UK</g:product_type>
 <g:custom_label_0>AGPE</g:custom_label_0>
 <g:custom_label_1>Approx. 3 hours</g:custom_label_1>
@@ -2657,6 +2657,24 @@
 <g:activity_sub_categories>London Attraction Tickets</g:activity_sub_categories>
 </item>
 <item>
+<g:id>HDH</g:id>
+<g:title>Hobbledown Heath Adventure Park</g:title>
+<g:description>Enjoy one of the largest indoor play arenas in London – see animals and swing from ropes at Hobbledown Heath Adventure Park!</g:description>
+<g:link>https://www.goldentours.com/london-attraction-tickets/hobbledown-heath</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>0.00 GBP</g:price>
+<g:product_type>London Attraction Tickets</g:product_type>
+<g:custom_label_0>HDH</g:custom_label_0>
+<g:custom_label_2>London Attraction Tickets</g:custom_label_2>
+<g:activity_category>Other</g:activity_category>
+<g:activity_sub_categories>London Attraction Tickets</g:activity_sub_categories>
+</item>
+<item>
 <g:id>a372d262-26f2-4d7e-aa05-9c2e656312f1</g:id>
 <g:title>Houses of Parliament &amp; Westminster Abbey Guided Tours</g:title>
 <g:description>Enjoy a guided tour of two of the most important buildings in Britain. See the famous Houses of Parliament and Westminster Abbey!</g:description>
@@ -3190,7 +3208,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/99d9abd2-0baf-42e2-9924-2dd1cd7ea5ff_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>29.00 GBP</g:price>
+<g:price>30.00 GBP</g:price>
 <g:product_type>London by Night</g:product_type>
 <g:custom_label_0>208</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
@@ -3771,11 +3789,11 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>199.00 GBP</g:price>
-<g:product_type>London to Paris Day Tours By Train</g:product_type>
-<g:custom_label_0>801CM</g:custom_label_0>
-<g:custom_label_2>London to Paris Day Tours By Train</g:custom_label_2>
+<g:product_type>London To Paris Day Tours By Train</g:product_type>
+<g:custom_label_0>Enlarge</g:custom_label_0>
+<g:custom_label_2>London To Paris Day Tours By Train</g:custom_label_2>
 <g:activity_category>Tour</g:activity_category>
-<g:activity_sub_categories>London to Paris Day Tours By Train</g:activity_sub_categories>
+<g:activity_sub_categories>London To Paris Day Tours By Train</g:activity_sub_categories>
 </item>
 <item>
 <g:id>c97e0520-6a90-4490-a185-d95aaa02921b</g:id>
