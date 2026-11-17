@@ -1159,7 +1159,7 @@
 <g:brand>Golden Tours</g:brand>
 <g:price>11.00 GBP</g:price>
 <g:product_type>Festive Period Christmas</g:product_type>
-<g:custom_label_0>Enlarge</g:custom_label_0>
+<g:custom_label_0>CBPCRP</g:custom_label_0>
 <g:custom_label_2>Festive Period Christmas</g:custom_label_2>
 <g:activity_category>Tour</g:activity_category>
 <g:activity_sub_categories>Festive Period Christmas</g:activity_sub_categories>
@@ -2654,17 +2654,17 @@
 <g:activity_sub_categories>London Attraction Tickets</g:activity_sub_categories>
 </item>
 <item>
-<g:id>41ec3a68-30f7-449f-a8fc-1b77b308c227</g:id>
+<g:id>HDH</g:id>
 <g:title>Hobbledown Heath Adventure Park</g:title>
 <g:description>Enjoy one of the largest indoor play arenas in London – see animals and swing from ropes at Hobbledown Heath Adventure Park!</g:description>
 <g:link>https://www.goldentours.com/london-attraction-tickets/hobbledown-heath</g:link>
-<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227.jpg</g:image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_2.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_3.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_4.jpg</g:additional_image_link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>14.50 GBP</g:price>
+<g:price>0.00 GBP</g:price>
 <g:product_type>London Attraction Tickets</g:product_type>
 <g:custom_label_0>HDH</g:custom_label_0>
 <g:custom_label_2>London Attraction Tickets</g:custom_label_2>
@@ -3668,13 +3668,12 @@
 <g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/b91f2c07-a007-4334-92e4-ed6f0c861f34.jpg</g:image_link>
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/b91f2c07-a007-4334-92e4-ed6f0c861f34_2.jpg</g:additional_image_link>
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/b91f2c07-a007-4334-92e4-ed6f0c861f34_3.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/b91f2c07-a007-4334-92e4-ed6f0c861f34_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>30.00 GBP</g:price>
 <g:sale_price>19.50 GBP</g:sale_price>
 <g:product_type>London Sightseeing Tours</g:product_type>
-<g:custom_label_0>Exclusive</g:custom_label_0>
+<g:custom_label_0>RM1</g:custom_label_0>
 <g:custom_label_1>Approx. 70 minutes</g:custom_label_1>
 <g:custom_label_2>London Sightseeing Tours</g:custom_label_2>
 <g:activity_category>Tour</g:activity_category>
@@ -5050,7 +5049,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/a9542c72-e705-49a6-a04f-6ade950c9d55_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>34.00 GBP</g:price>
+<g:price>16.00 GBP</g:price>
 <g:product_type>Out Of London Attractions</g:product_type>
 <g:custom_label_0>ATR</g:custom_label_0>
 <g:custom_label_1>1 or 2 day entries</g:custom_label_1>
@@ -6751,6 +6750,7 @@
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
 <g:price>154.00 GBP</g:price>
+<g:sale_price>135.52 GBP</g:sale_price>
 <g:product_type>Warner Bros Harry Potter Studio Tour London</g:product_type>
 <g:custom_label_0>WBHH1D</g:custom_label_0>
 <g:custom_label_2>Warner Bros Harry Potter Studio Tour London</g:custom_label_2>
