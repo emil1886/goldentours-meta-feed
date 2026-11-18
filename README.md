@@ -49,6 +49,9 @@ type; on a standard products catalogue they're ignored and `product_type` applie
   Mirrored here because custom labels are supported on *every* catalogue type and
   are selectable in product sets / ad rules, whereas `activity_sub_categories`
   only applies to Activity catalogues.
+- **`custom_label_3`** — `On Sale` for items that have a `sale_price` (a genuine
+  discount), blank otherwise. Lets you build a product set / target just the
+  discounted items.
 
 ## Images (square)
 

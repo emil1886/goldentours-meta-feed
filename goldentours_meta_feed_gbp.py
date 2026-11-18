@@ -580,12 +580,13 @@ def write_csv(items, currency, path):
             # an existing Meta data-source field mapping isn't shifted/invalidated
             # (inserting a column mid-schema broke activity_sub_categories once).
             "custom_label_0", "custom_label_1", "activity_category",
-            "activity_sub_categories", "custom_label_2"]
+            "activity_sub_categories", "custom_label_2", "custom_label_3"]
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols)
         w.writeheader()
         for p in items:
             price, sale_price = price_fields(p, currency)
+            on_sale = "On Sale" if sale_price else ""
             extras = p.get("image_urls") or []
             w.writerow({
                 "id": p["id"], "title": p["title"],
@@ -604,6 +605,7 @@ def write_csv(items, currency, path):
                 "custom_label_2": p.get("custom_label_2", ""),
                 "activity_category": p.get("activity_category", ""),
                 "activity_sub_categories": p.get("activity_sub_categories", ""),
+                "custom_label_3": on_sale,
             })
 
 
@@ -640,6 +642,8 @@ def write_xml(items, currency, path):
         if p.get("activity_sub_categories"):
             out += [f"<g:activity_sub_categories>{esc(p['activity_sub_categories'])}"
                     f"</g:activity_sub_categories>"]
+        if sale_price:
+            out += ["<g:custom_label_3>On Sale</g:custom_label_3>"]
         out += ["</item>"]
     out += ["</channel>", "</rss>"]
     with open(path, "w", encoding="utf-8") as f:
