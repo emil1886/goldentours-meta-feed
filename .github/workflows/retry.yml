@@ -1,0 +1,32 @@
+name: Retry feed build on failure
+
+# If a SCHEDULED run of "Build Golden Tours Meta feed" fails - e.g. a transient
+# Cloudflare 403 on the runner's IP, or a GitHub Pages deploy glitch - wait 30
+# minutes and re-dispatch the build once, on a fresh runner (new IP).
+#
+# Capped to one retry: the re-dispatch runs as a workflow_dispatch event, so if
+# that attempt also fails it will NOT match the `event == 'schedule'` condition
+# and therefore won't trigger a further retry (no infinite loop). Manual runs are
+# likewise never auto-retried.
+
+on:
+  workflow_run:
+    workflows: ["Build Golden Tours Meta feed"]
+    types: [completed]
+
+permissions:
+  actions: write          # needed to re-dispatch the build workflow
+
+jobs:
+  retry:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' && github.event.workflow_run.event == 'schedule' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Wait 30 minutes before retrying
+        run: sleep 1800
+
+      - name: Re-dispatch the feed build on a fresh runner
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run "goldentours-feed.yml" --repo "${{ github.repository }}"
