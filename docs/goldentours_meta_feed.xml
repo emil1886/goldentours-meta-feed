@@ -621,6 +621,24 @@
 <g:activity_sub_categories>Christmas Day in London and the UK</g:activity_sub_categories>
 </item>
 <item>
+<g:id>01a1f32e-b7e5-7eef-a66e-c66e8fe92c84</g:id>
+<g:title>London Christmas Village</g:title>
+<g:description>See Santa as Lapland comes to London! Enjoy a Christmas market, get food and drink, and see Santa!</g:description>
+<g:link>https://www.goldentours.com/christmas-day-in-london/london-christmas-village</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a1f32e-b7e5-7eef-a66e-c66e8fe92c84.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a1f32e-b7e5-7eef-a66e-c66e8fe92c84_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a1f32e-b7e5-7eef-a66e-c66e8fe92c84_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a1f32e-b7e5-7eef-a66e-c66e8fe92c84_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>15.00 GBP</g:price>
+<g:product_type>Christmas Day in London and the UK</g:product_type>
+<g:custom_label_0>LCV</g:custom_label_0>
+<g:custom_label_2>Christmas Day in London and the UK</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Christmas Day in London and the UK</g:activity_sub_categories>
+</item>
+<item>
 <g:id>01a0e753-71b9-76f9-9519-9ce0f9ffe33d</g:id>
 <g:title>Salisbury, Stonehenge and Bath with Elf Guide &amp; Traditional Christmas Day Lunch</g:title>
 <g:description>Treat yourself with a walking tour of Bath, a lovely visit to Salisbury Cathedral and a traditional festive lunch.</g:description>
@@ -2695,17 +2713,17 @@
 <g:activity_sub_categories>London Attraction Tickets</g:activity_sub_categories>
 </item>
 <item>
-<g:id>41ec3a68-30f7-449f-a8fc-1b77b308c227</g:id>
+<g:id>HDH</g:id>
 <g:title>Hobbledown Heath Adventure Park</g:title>
 <g:description>Enjoy one of the largest indoor play arenas in London – see animals and swing from ropes at Hobbledown Heath Adventure Park!</g:description>
 <g:link>https://www.goldentours.com/london-attraction-tickets/hobbledown-heath</g:link>
-<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227.jpg</g:image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_2.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_3.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/41ec3a68-30f7-449f-a8fc-1b77b308c227_4.jpg</g:additional_image_link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/HDH_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>14.50 GBP</g:price>
+<g:price>0.00 GBP</g:price>
 <g:product_type>London Attraction Tickets</g:product_type>
 <g:custom_label_0>HDH</g:custom_label_0>
 <g:custom_label_2>London Attraction Tickets</g:custom_label_2>
@@ -3471,13 +3489,15 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/d2134c7b-2d1e-4fad-84a5-3735cb35f737_3.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>25.00 GBP</g:price>
+<g:price>30.00 GBP</g:price>
+<g:sale_price>25.50 GBP</g:sale_price>
 <g:product_type>London Hop-On Hop-Off Bus Tours</g:product_type>
 <g:custom_label_0>208CL</g:custom_label_0>
 <g:custom_label_1>Approx.75-90 minutes</g:custom_label_1>
 <g:custom_label_2>London Hop-On Hop-Off Bus Tours</g:custom_label_2>
 <g:activity_category>Tour</g:activity_category>
 <g:activity_sub_categories>London Hop-On Hop-Off Bus Tours</g:activity_sub_categories>
+<g:custom_label_3>On Sale</g:custom_label_3>
 </item>
 <item>
 <g:id>a19c6c89-9334-4909-a99a-85cb0e225b82</g:id>
@@ -5745,7 +5765,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/ea59f574-f45e-46b5-8dbb-eb3be9c404da_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>179.50 GBP</g:price>
+<g:price>329.00 GBP</g:price>
 <g:product_type>Private Tours in London &amp; the UK</g:product_type>
 <g:custom_label_0>PWT1</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
