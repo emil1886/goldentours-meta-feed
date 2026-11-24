@@ -71,6 +71,32 @@ jobs:
         with:
           path: docs
 
+      # The Pages artifact is large (~250 MB of images). GitHub finalizes the
+      # upload but its artifact-list API can lag several seconds/minutes before
+      # the artifact is queryable. deploy-pages@v4 only retries that lookup for
+      # ~15s, so on a slow day it reads "Found 0 artifacts" and fails even though
+      # the upload succeeded. Poll the API ourselves until github-pages appears
+      # (up to ~10 min) so deploy never loses that race.
+      - name: Wait for Pages artifact to be queryable
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 30); do
+            count=$(gh api \
+              "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" \
+              --jq '[.artifacts[] | select(.name=="github-pages")] | length' 2>/dev/null || echo 0)
+            echo "attempt $i: github-pages artifacts visible = $count"
+            if [ "$count" -ge 1 ]; then
+              echo "Artifact is queryable; proceeding to deploy."
+              exit 0
+            fi
+            sleep 20
+          done
+          echo "::error::github-pages artifact never became queryable via the API (GitHub artifact backend lag/outage)." >&2
+          exit 1
+
       - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 600000        # give the deploy up to 10 min to find/publish the artifact
