@@ -1375,8 +1375,8 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/fade413c-2bcd-4d76-a6ec-6a2542e589bb_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>34.00 GBP</g:price>
-<g:sale_price>30.60 GBP</g:sale_price>
+<g:price>38.00 GBP</g:price>
+<g:sale_price>34.20 GBP</g:sale_price>
 <g:product_type>Festive Period - Christmas 2026</g:product_type>
 <g:custom_label_0>CLM</g:custom_label_0>
 <g:custom_label_1>Approx. 90 minutes</g:custom_label_1>
@@ -1642,6 +1642,24 @@
 <g:product_type>Fun things to do in London and the UK</g:product_type>
 <g:custom_label_0>ICE2</g:custom_label_0>
 <g:custom_label_1>Approx. 1 hour 45 minutes</g:custom_label_1>
+<g:custom_label_2>Fun things to do in London and the UK</g:custom_label_2>
+<g:activity_category>Tour</g:activity_category>
+<g:activity_sub_categories>Fun things to do in London and the UK</g:activity_sub_categories>
+</item>
+<item>
+<g:id>01a1596a-aea9-714c-b3ec-d22f6c76a0ab</g:id>
+<g:title>Alice Immersive Wonderland Experience</g:title>
+<g:description>Enjoy an immersive experience bringing Lewis Carroll's Alice in Wonderland to life. Experience a 120-minute journey at the Alice Immersive Wonderland!</g:description>
+<g:link>https://www.goldentours.com/fun-things-to-do-in-london/alice-immersive-wonderland-experience</g:link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a1596a-aea9-714c-b3ec-d22f6c76a0ab.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a1596a-aea9-714c-b3ec-d22f6c76a0ab_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a1596a-aea9-714c-b3ec-d22f6c76a0ab_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/01a1596a-aea9-714c-b3ec-d22f6c76a0ab_4.jpg</g:additional_image_link>
+<g:availability>in stock</g:availability>
+<g:brand>Golden Tours</g:brand>
+<g:price>34.00 GBP</g:price>
+<g:product_type>Fun things to do in London and the UK</g:product_type>
+<g:custom_label_0>AIWE</g:custom_label_0>
 <g:custom_label_2>Fun things to do in London and the UK</g:custom_label_2>
 <g:activity_category>Tour</g:activity_category>
 <g:activity_sub_categories>Fun things to do in London and the UK</g:activity_sub_categories>
@@ -2057,17 +2075,17 @@
 <g:activity_sub_categories>Immersive Experiences in London &amp; the UK</g:activity_sub_categories>
 </item>
 <item>
-<g:id>3627f681-dbbd-497b-8691-2764b855353e</g:id>
+<g:id>RHSGW</g:id>
 <g:title>RHS Glow at Wisley</g:title>
 <g:description>Enjoy a stunning display of Christmas lights at the RHS Gardens located in Wisely! See the stunning RHS Glow display at Wisely!</g:description>
 <g:link>https://www.goldentours.com/immersive-experiences/rhs-glow-at-wisley</g:link>
-<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/3627f681-dbbd-497b-8691-2764b855353e.jpg</g:image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/3627f681-dbbd-497b-8691-2764b855353e_2.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/3627f681-dbbd-497b-8691-2764b855353e_3.jpg</g:additional_image_link>
-<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/3627f681-dbbd-497b-8691-2764b855353e_4.jpg</g:additional_image_link>
+<g:image_link>https://emil1886.github.io/goldentours-meta-feed/images/RHSGW.jpg</g:image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/RHSGW_2.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/RHSGW_3.jpg</g:additional_image_link>
+<g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/RHSGW_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>7.50 GBP</g:price>
+<g:price>0.00 GBP</g:price>
 <g:product_type>Immersive Experiences in London &amp; the UK</g:product_type>
 <g:custom_label_0>RHSGW</g:custom_label_0>
 <g:custom_label_2>Immersive Experiences in London &amp; the UK</g:custom_label_2>
@@ -4005,7 +4023,7 @@
 <g:additional_image_link>https://emil1886.github.io/goldentours-meta-feed/images/90132529-ca6e-4b17-bbbc-3bf2ea71a1aa_4.jpg</g:additional_image_link>
 <g:availability>in stock</g:availability>
 <g:brand>Golden Tours</g:brand>
-<g:price>133.00 GBP</g:price>
+<g:price>134.00 GBP</g:price>
 <g:product_type>London to Paris Day Tours By Train</g:product_type>
 <g:custom_label_0>DPE</g:custom_label_0>
 <g:custom_label_1>1 day</g:custom_label_1>
